@@ -77,7 +77,7 @@ export async function POST(request: Request) {
 
   const from =
     process.env.RESEND_FROM_EMAIL ??
-    `${siteConfig.shortName} <hello@${siteConfig.domain}>`;
+    `hello@${siteConfig.domain}`;
   const to = process.env.CONTACT_TO_EMAIL ?? siteConfig.email;
 
   const subject = `[${siteConfig.shortName} Contact] ${payload.inquiryType} — ${payload.firstName} ${payload.lastName}`;
@@ -113,10 +113,13 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("Resend error:", error);
-    return NextResponse.json(
-      { error: "Failed to send message. Please try again or email us directly." },
-      { status: 502 },
-    );
+
+    const message =
+      error.statusCode === 403
+        ? "Email delivery is not fully configured yet. Please email us directly."
+        : "Failed to send message. Please try again or email us directly.";
+
+    return NextResponse.json({ error: message }, { status: 502 });
   }
 
   return NextResponse.json({ success: true });
