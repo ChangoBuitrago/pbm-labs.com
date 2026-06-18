@@ -1,11 +1,23 @@
 "use client";
 
+import { useEffect } from "react";
 import { Building2, Mail } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
 export default function ContactPage() {
   const { line1, line2, city, state, zip, country } = siteConfig.address;
   const { email } = siteConfig;
+
+  useEffect(() => {
+    const scrollToForm = () => {
+      if (window.location.hash === "#form") {
+        document.getElementById("form")?.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+    scrollToForm();
+    window.addEventListener("hashchange", scrollToForm);
+    return () => window.removeEventListener("hashchange", scrollToForm);
+  }, []);
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-20 animate-in">
@@ -50,7 +62,10 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="md:col-span-3 bg-[#0B1221] border border-slate-800 p-8 rounded-2xl">
+        <div
+          id="form"
+          className="md:col-span-3 bg-[#0B1221] border border-slate-800 p-8 rounded-2xl scroll-mt-24"
+        >
           <form
             className="space-y-6"
             onSubmit={(e) => e.preventDefault()}

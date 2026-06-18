@@ -61,13 +61,13 @@ export default function ProductsPage() {
 
           <div className="flex flex-wrap gap-4">
             <Link
-              href="/contact"
+              href="/contact#form"
               className="bg-cyan-600 hover:bg-cyan-500 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-cyan-500/20"
             >
               Request API Key
             </Link>
             <Link
-              href="/contact"
+              href="/contact#form"
               className="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 px-6 py-3 rounded-lg font-medium transition-colors"
             >
               Contact for Documentation

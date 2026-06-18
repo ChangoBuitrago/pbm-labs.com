@@ -105,7 +105,7 @@ export default function ServicesPage() {
             Schedule a technical consultation with our engineering leads.
           </p>
           <Link
-            href="/contact"
+            href="/contact#form"
             className="bg-white text-slate-950 px-6 py-2 rounded-md font-medium hover:bg-slate-200 transition-colors"
           >
             Contact Consulting Team

@@ -54,10 +54,10 @@ export function Footer() {
             Software Products
           </Link>
           <Link
-            href="/contact"
+            href="/contact#form"
             className="text-sm text-slate-400 hover:text-white transition-colors"
           >
-            Contact Directory
+            Contact
           </Link>
         </div>
 

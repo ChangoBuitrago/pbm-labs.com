@@ -48,16 +48,10 @@ export function Navbar() {
 
         <div className="flex gap-4 items-center">
           <Link
-            href="/contact"
-            className="text-sm font-medium text-slate-300 hover:text-white transition-colors hidden sm:block"
-          >
-            Support
-          </Link>
-          <Link
-            href="/contact"
+            href="/contact#form"
             className="bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-all"
           >
-            Contact Us
+            Contact
           </Link>
         </div>
       </div>
