@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Building2, Mail } from "lucide-react";
+import { Building2, CheckCircle2, Mail } from "lucide-react";
+import { ButtonSubmit } from "@/components/ui/Button";
+import { PageHeader } from "@/components/ui/PageHeader";
+import { SectionLabel } from "@/components/ui/Card";
 import { siteConfig } from "@/lib/site-config";
 
 const inquiryOptions = [
@@ -83,75 +86,82 @@ export default function ContactPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-20 animate-in">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold text-white mb-4 tracking-tight">
-          Contact Us
-        </h1>
-        <p className="text-slate-400">
-          Get in touch with our consulting team or request access to our
-          enterprise software.
-        </p>
-      </div>
+      <PageHeader
+        eyebrow="Contact"
+        title="Get in touch"
+        description="Reach our consulting team or request access to enterprise software."
+      />
 
-      <div className="grid md:grid-cols-5 gap-12">
+      <div className="grid md:grid-cols-5 gap-10">
         <div className="md:col-span-2 space-y-8">
           <div>
-            <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <Building2 className="w-5 h-5 text-cyan-500" /> Corporate
-              Headquarters
-            </h2>
-            <p className="text-slate-400 text-sm leading-relaxed">
-              {line1}
-              <br />
-              {line2}
-              <br />
-              {city}, {state} {zip}
-              <br />
-              {country}
-            </p>
+            <SectionLabel>Headquarters</SectionLabel>
+            <div className="flex items-start gap-3">
+              <Building2
+                className="w-4 h-4 text-slate-600 mt-0.5 shrink-0"
+                strokeWidth={1.5}
+              />
+              <p className="text-slate-500 text-sm leading-relaxed">
+                {line1}
+                <br />
+                {line2}
+                <br />
+                {city}, {state} {zip}
+                <br />
+                {country}
+              </p>
+            </div>
           </div>
 
           <div>
-            <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <Mail className="w-5 h-5 text-cyan-500" /> Email
-            </h2>
-            <a
-              href={`mailto:${email}`}
-              className="text-slate-300 hover:text-cyan-400 transition-colors text-sm"
-            >
-              {email}
-            </a>
+            <SectionLabel>Email</SectionLabel>
+            <div className="flex items-center gap-3">
+              <Mail
+                className="w-4 h-4 text-slate-600 shrink-0"
+                strokeWidth={1.5}
+              />
+              <a
+                href={`mailto:${email}`}
+                className="text-slate-300 hover:text-white transition-colors text-sm"
+              >
+                {email}
+              </a>
+            </div>
           </div>
         </div>
 
         <div
           id="form"
-          className="md:col-span-3 bg-[#0B1221] border border-slate-800 p-8 rounded-2xl scroll-mt-24"
+          className="md:col-span-3 corp-panel p-8 scroll-mt-24"
         >
           {status === "success" ? (
-            <div className="text-center py-8">
+            <div className="text-center py-10">
+              <CheckCircle2
+                className="w-10 h-10 text-emerald-500 mx-auto mb-4"
+                strokeWidth={1.5}
+              />
               <p className="text-white font-semibold text-lg mb-2">
                 Message sent
               </p>
-              <p className="text-slate-400 text-sm mb-6">
-                Thanks for reaching out. We&apos;ll get back to you at the email
-                you provided.
+              <p className="text-slate-500 text-sm mb-6 max-w-xs mx-auto">
+                Thank you for reaching out. We&apos;ll respond at the email you
+                provided.
               </p>
               <button
                 type="button"
                 onClick={() => setStatus("idle")}
-                className="text-cyan-400 hover:text-cyan-300 text-sm font-medium"
+                className="text-blue-400 hover:text-blue-300 text-sm font-medium transition-colors"
               >
                 Send another message
               </button>
             </div>
           ) : (
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <label
                     htmlFor="firstName"
-                    className="text-sm font-medium text-slate-300"
+                    className="text-xs font-medium text-slate-400 uppercase tracking-wide"
                   >
                     First Name
                   </label>
@@ -163,14 +173,14 @@ export default function ContactPage() {
                     value={form.firstName}
                     onChange={(e) => updateField("firstName", e.target.value)}
                     disabled={status === "loading"}
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-60"
+                    className="corp-input"
                     placeholder="John"
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <label
                     htmlFor="lastName"
-                    className="text-sm font-medium text-slate-300"
+                    className="text-xs font-medium text-slate-400 uppercase tracking-wide"
                   >
                     Last Name
                   </label>
@@ -182,16 +192,16 @@ export default function ContactPage() {
                     value={form.lastName}
                     onChange={(e) => updateField("lastName", e.target.value)}
                     disabled={status === "loading"}
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-60"
+                    className="corp-input"
                     placeholder="Doe"
                   />
                 </div>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <label
                   htmlFor="email"
-                  className="text-sm font-medium text-slate-300"
+                  className="text-xs font-medium text-slate-400 uppercase tracking-wide"
                 >
                   Corporate Email
                 </label>
@@ -203,15 +213,15 @@ export default function ContactPage() {
                   value={form.email}
                   onChange={(e) => updateField("email", e.target.value)}
                   disabled={status === "loading"}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-60"
+                  className="corp-input"
                   placeholder="john@company.com"
                 />
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <label
                   htmlFor="inquiryType"
-                  className="text-sm font-medium text-slate-300"
+                  className="text-xs font-medium text-slate-400 uppercase tracking-wide"
                 >
                   Inquiry Type
                 </label>
@@ -222,7 +232,7 @@ export default function ContactPage() {
                   value={form.inquiryType}
                   onChange={(e) => updateField("inquiryType", e.target.value)}
                   disabled={status === "loading"}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-60"
+                  className="corp-input"
                 >
                   {inquiryOptions.map((option) => (
                     <option key={option} value={option}>
@@ -232,10 +242,10 @@ export default function ContactPage() {
                 </select>
               </div>
 
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 <label
                   htmlFor="message"
-                  className="text-sm font-medium text-slate-300"
+                  className="text-xs font-medium text-slate-400 uppercase tracking-wide"
                 >
                   Message
                 </label>
@@ -247,24 +257,24 @@ export default function ContactPage() {
                   value={form.message}
                   onChange={(e) => updateField("message", e.target.value)}
                   disabled={status === "loading"}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-cyan-500 transition-colors disabled:opacity-60"
+                  className="corp-input resize-none"
                   placeholder="How can we help your engineering or finance team?"
                 />
               </div>
 
               {status === "error" && errorMessage && (
-                <p className="text-sm text-red-400" role="alert">
+                <p className="text-sm text-red-400/90" role="alert">
                   {errorMessage}
                 </p>
               )}
 
-              <button
+              <ButtonSubmit
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full bg-white text-slate-950 font-semibold py-3 rounded-lg hover:bg-slate-200 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                size="md"
               >
                 {status === "loading" ? "Sending…" : "Send Message"}
-              </button>
+              </ButtonSubmit>
             </form>
           )}
         </div>

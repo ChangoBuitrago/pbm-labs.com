@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FileCheck, Shield } from "lucide-react";
+import { PageHeader } from "@/components/ui/PageHeader";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -9,17 +10,17 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20 text-slate-300 animate-in">
-      <div className="mb-12 border-b border-slate-800 pb-8">
-        <h1 className="text-4xl font-bold text-white mb-4 tracking-tight">
-          Terms of Service
-        </h1>
-        <p className="text-slate-500 font-mono text-sm">Last Updated: June 2026</p>
-      </div>
+    <div className="max-w-3xl mx-auto px-6 py-20 text-slate-300 animate-in">
+      <PageHeader
+        eyebrow="Legal"
+        title="Terms of Service"
+        description="Last updated: June 2026"
+        align="left"
+      />
 
-      <div className="space-y-10">
+      <div className="space-y-10 text-sm leading-relaxed">
         <section>
-          <h2 className="text-2xl font-semibold text-white mb-4 tracking-tight">
+          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
             1. Company Purpose & B2B Exclusivity
           </h2>
           <p className="leading-relaxed text-slate-400">
@@ -35,7 +36,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold text-white mb-4 tracking-tight">
+          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
             2. Nature of the Software Services
           </h2>
           <p className="leading-relaxed mb-4 text-slate-400">
@@ -44,9 +45,9 @@ export default function TermsPage() {
             to analyze data integrity, specifically focusing on email metadata
             (such as DKIM and SMTP origin).
           </p>
-          <ul className="list-none space-y-4 text-slate-400 bg-slate-900/50 p-6 rounded-xl border border-slate-800">
+          <ul className="list-none space-y-4 text-slate-400 corp-panel p-6">
             <li className="flex gap-3">
-              <Shield className="w-6 h-6 text-cyan-500 shrink-0" />
+              <Shield className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" strokeWidth={1.5} />
               <div>
                 <strong className="text-slate-200 block mb-1">
                   Not a Financial Service
@@ -58,7 +59,7 @@ export default function TermsPage() {
               </div>
             </li>
             <li className="flex gap-3">
-              <FileCheck className="w-6 h-6 text-cyan-500 shrink-0" />
+              <FileCheck className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" strokeWidth={1.5} />
               <div>
                 <strong className="text-slate-200 block mb-1">
                   Information Only
@@ -72,7 +73,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold text-white mb-4 tracking-tight">
+          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
             3. Limitation of Liability and Assumption of Risk
           </h2>
           <p className="leading-relaxed text-slate-400">
@@ -87,7 +88,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold text-white mb-4 tracking-tight">
+          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
             4. Fees, Billing, and Refunds
           </h2>
           <p className="leading-relaxed text-slate-400">
@@ -101,7 +102,7 @@ export default function TermsPage() {
         </section>
 
         <section>
-          <h2 className="text-2xl font-semibold text-white mb-4 tracking-tight">
+          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
             5. Governing Law and Dispute Resolution
           </h2>
           <p className="leading-relaxed text-slate-400">

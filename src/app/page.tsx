@@ -1,106 +1,131 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  Building2,
   ChevronRight,
   Code,
   Cpu,
+  Globe,
   Shield,
 } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+import { siteConfig } from "@/lib/site-config";
+
+const trustItems = [
+  { icon: Building2, label: "B2B Enterprise Only" },
+  { icon: Globe, label: "U.S. Registered LLC" },
+  { icon: Shield, label: "Security-First Engineering" },
+];
 
 export default function HomePage() {
   return (
     <div className="animate-in">
-      <main className="relative max-w-7xl mx-auto px-6 pt-32 pb-24 flex flex-col items-center text-center">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-gradient-to-b from-slate-900/50 to-transparent pointer-events-none -z-10" />
+      <main className="relative max-w-7xl mx-auto px-6 pt-24 pb-20">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-950/20 blur-[100px] rounded-full pointer-events-none -z-10" />
 
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight max-w-5xl leading-[1.1] mb-8 text-white">
-          Secure Infrastructure & <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-500">
-            Software Engineering.
-          </span>
-        </h1>
+        <div className="max-w-4xl">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-blue-400/90 mb-6">
+            Enterprise Technology Consulting
+          </p>
 
-        <p className="text-lg md:text-xl text-slate-400 max-w-2xl mb-12 leading-relaxed">
-          PBM Labs LLC is a specialized technology consulting firm. We design
-          enterprise software architecture and build cryptographic data
-          validation tools for high-stakes corporate environments.
-        </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.12] mb-7 text-white">
+            Secure infrastructure and{" "}
+            <span className="text-slate-400">software engineering</span> for
+            enterprise teams.
+          </h1>
 
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
-          <Link
-            href="/services"
-            className="bg-white text-slate-950 px-8 py-4 rounded-lg font-semibold flex items-center gap-2 hover:bg-slate-200 transition-all"
-          >
-            Explore Our Services <ArrowRight className="w-5 h-5" />
-          </Link>
-          <Link
-            href="/products"
-            className="px-8 py-4 rounded-lg font-semibold text-slate-300 hover:text-white transition-all border border-slate-700 hover:bg-slate-800"
-          >
-            View Software Products
-          </Link>
+          <p className="text-lg text-slate-400 max-w-2xl mb-10 leading-relaxed">
+            {siteConfig.name} designs enterprise software architecture and builds
+            cryptographic data validation tools for high-stakes corporate
+            environments.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 mb-16">
+            <Button href="/services" variant="primary" size="lg">
+              Our Services <ArrowRight className="w-4 h-4" />
+            </Button>
+            <Button href="/products" variant="secondary" size="lg">
+              Software Products
+            </Button>
+          </div>
+
+          <div className="flex flex-wrap gap-6 pt-8 border-t border-slate-800/60">
+            {trustItems.map(({ icon: Icon, label }) => (
+              <div
+                key={label}
+                className="flex items-center gap-2.5 text-sm text-slate-500"
+              >
+                <Icon className="w-4 h-4 text-slate-600" strokeWidth={1.5} />
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </main>
 
-      <section className="border-t border-slate-800/80 py-24 bg-[#050B14]">
+      <section className="border-t border-slate-800/60 py-20 bg-slate-950/30">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-            <div className="max-w-2xl">
-              <h2 className="text-3xl font-bold text-white mb-4">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+            <div className="max-w-xl">
+              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-3">
                 Core Competencies
-              </h2>
-              <p className="text-slate-400">
-                Our engineering team specializes in solving complex
-                infrastructure and security challenges for mid-market
-                organizations.
               </p>
+              <h2 className="text-2xl md:text-3xl font-semibold text-white tracking-tight">
+                Engineering expertise for complex corporate environments
+              </h2>
             </div>
             <Link
               href="/services"
-              className="text-cyan-400 hover:text-cyan-300 font-medium flex items-center gap-1 mt-4 md:mt-0"
+              className="text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 w-fit transition-colors"
             >
               View all services <ChevronRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-8 rounded-2xl bg-[#0B1221] border border-slate-800 flex flex-col h-full">
-              <Code className="w-8 h-8 text-slate-300 mb-6" />
-              <h3 className="text-xl font-semibold text-white mb-3">
+          <div className="grid md:grid-cols-3 gap-5">
+            <Card hover className="flex flex-col h-full">
+              <Code className="w-7 h-7 text-slate-400 mb-5" strokeWidth={1.5} />
+              <h3 className="text-lg font-semibold text-white mb-2">
                 Custom Development
               </h3>
-              <p className="text-slate-400 text-sm mb-6 flex-grow">
-                End-to-end software engineering. We build internal tools, APIs,
-                and scalable platforms that align with strict business
-                requirements.
+              <p className="text-slate-500 text-sm leading-relaxed flex-grow">
+                End-to-end software engineering — internal tools, APIs, and
+                scalable platforms aligned with strict business requirements.
               </p>
-            </div>
-            <div className="p-8 rounded-2xl bg-[#0B1221] border border-slate-800 flex flex-col h-full">
-              <Shield className="w-8 h-8 text-slate-300 mb-6" />
-              <h3 className="text-xl font-semibold text-white mb-3">
+            </Card>
+
+            <Card hover className="flex flex-col h-full">
+              <Shield className="w-7 h-7 text-slate-400 mb-5" strokeWidth={1.5} />
+              <h3 className="text-lg font-semibold text-white mb-2">
                 Security Architecture
               </h3>
-              <p className="text-slate-400 text-sm mb-6 flex-grow">
-                Consulting on zero-trust implementation, business logic
-                vulnerabilities, and cryptographic validation layers.
+              <p className="text-slate-500 text-sm leading-relaxed flex-grow">
+                Zero-trust implementation, business logic vulnerability audits,
+                and cryptographic validation layers.
               </p>
-            </div>
-            <Link
-              href="/products"
-              className="p-8 rounded-2xl border border-slate-800 flex flex-col h-full relative overflow-hidden group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <Cpu className="w-8 h-8 text-cyan-400 mb-6 relative z-10" />
-              <h3 className="text-xl font-semibold text-white mb-3 relative z-10">
-                PBM Validation API
-              </h3>
-              <p className="text-slate-400 text-sm mb-6 flex-grow relative z-10">
-                Discover our proprietary software solution designed to prevent
-                invoice fraud via automated cryptographic verification.
-              </p>
-              <div className="relative z-10 text-cyan-400 text-sm font-medium flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                Learn more <ArrowRight className="w-4 h-4" />
-              </div>
+            </Card>
+
+            <Link href="/products" className="group">
+              <Card
+                hover
+                className="flex flex-col h-full border-blue-900/30 group-hover:border-blue-800/50"
+              >
+                <Cpu
+                  className="w-7 h-7 text-blue-400 mb-5"
+                  strokeWidth={1.5}
+                />
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {siteConfig.productName}
+                </h3>
+                <p className="text-slate-500 text-sm leading-relaxed flex-grow mb-4">
+                  Proprietary software for automated cryptographic verification
+                  in accounts payable workflows.
+                </p>
+                <span className="text-sm text-blue-400 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                  Learn more <ArrowRight className="w-4 h-4" />
+                </span>
+              </Card>
             </Link>
           </div>
         </div>

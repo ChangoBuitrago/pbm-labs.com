@@ -1,14 +1,19 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
+  --color-corp-bg: #060a10;
+  --color-corp-surface: #0c1219;
+  --color-corp-elevated: #111827;
+  --color-corp-border: #1e293b;
+  --color-corp-accent: #2563eb;
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(6px);
   }
   to {
     opacity: 1;
@@ -17,9 +22,25 @@
 }
 
 .animate-in {
-  animation: fade-in 0.5s ease-out forwards;
+  animation: fade-in 0.45s ease-out forwards;
 }
 
 body {
-  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background-color: var(--color-corp-bg);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center top;
+}
+
+.corp-input {
+  @apply w-full bg-slate-950/60 border border-slate-700/80 rounded-md px-4 py-2.5 text-white text-sm
+    focus:outline-none focus:border-blue-500/60 focus:ring-1 focus:ring-blue-500/20
+    transition-colors disabled:opacity-60 placeholder:text-slate-600;
+}
+
+.corp-panel {
+  @apply rounded-lg border border-slate-800/80 bg-slate-900/40 backdrop-blur-sm;
 }
