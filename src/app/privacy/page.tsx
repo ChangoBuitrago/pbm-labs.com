@@ -73,10 +73,10 @@ export default function PrivacyPage() {
               consulting engagements, please contact us.
             </p>
             <a
-              href={`mailto:${siteConfig.emails.compliance}`}
+              href={`mailto:${siteConfig.email}`}
               className="text-cyan-400 hover:text-cyan-300 font-medium"
             >
-              {siteConfig.emails.compliance}
+              {siteConfig.email}
             </a>
           </div>
         </section>

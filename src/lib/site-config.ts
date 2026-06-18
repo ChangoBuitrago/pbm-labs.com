@@ -14,11 +14,6 @@ export const siteConfig = {
     zip: "82801",
     country: "United States",
   },
-  emails: {
-    consulting: "consulting@pbm-labs.com",
-    support: "support@pbm-labs.com",
-    legal: "legal@pbm-labs.com",
-    compliance: "compliance@pbm-labs.com",
-  },
+  email: "hello@pbm-labs.com",
   productName: "PBM Validation API",
 } as const;

@@ -5,7 +5,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export default function ContactPage() {
   const { line1, line2, city, state, zip, country } = siteConfig.address;
-  const { consulting, support, legal } = siteConfig.emails;
+  const { email } = siteConfig;
 
   return (
     <div className="max-w-5xl mx-auto px-6 py-20 animate-in">
@@ -39,43 +39,14 @@ export default function ContactPage() {
 
           <div>
             <h2 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
-              <Mail className="w-5 h-5 text-cyan-500" /> Email Directory
+              <Mail className="w-5 h-5 text-cyan-500" /> Email
             </h2>
-            <ul className="space-y-3 text-sm">
-              <li>
-                <span className="block text-slate-500 text-xs uppercase tracking-wider font-semibold mb-1">
-                  Consulting & Sales
-                </span>
-                <a
-                  href={`mailto:${consulting}`}
-                  className="text-slate-300 hover:text-cyan-400 transition-colors"
-                >
-                  {consulting}
-                </a>
-              </li>
-              <li>
-                <span className="block text-slate-500 text-xs uppercase tracking-wider font-semibold mb-1">
-                  Support & API Access
-                </span>
-                <a
-                  href={`mailto:${support}`}
-                  className="text-slate-300 hover:text-cyan-400 transition-colors"
-                >
-                  {support}
-                </a>
-              </li>
-              <li>
-                <span className="block text-slate-500 text-xs uppercase tracking-wider font-semibold mb-1">
-                  Legal & Compliance
-                </span>
-                <a
-                  href={`mailto:${legal}`}
-                  className="text-slate-300 hover:text-cyan-400 transition-colors"
-                >
-                  {legal}
-                </a>
-              </li>
-            </ul>
+            <a
+              href={`mailto:${email}`}
+              className="text-slate-300 hover:text-cyan-400 transition-colors text-sm"
+            >
+              {email}
+            </a>
           </div>
         </div>
 
