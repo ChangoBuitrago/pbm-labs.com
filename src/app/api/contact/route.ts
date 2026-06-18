@@ -76,8 +76,7 @@ export async function POST(request: Request) {
   }
 
   const from =
-    process.env.RESEND_FROM_EMAIL ??
-    `hello@${siteConfig.domain}`;
+    process.env.RESEND_FROM_EMAIL ?? `${siteConfig.shortName} <${siteConfig.email}>`;
   const to = process.env.CONTACT_TO_EMAIL ?? siteConfig.email;
 
   const subject = `[${siteConfig.shortName} Contact] ${payload.inquiryType} — ${payload.firstName} ${payload.lastName}`;
