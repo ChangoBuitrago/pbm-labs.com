@@ -47,16 +47,6 @@ export function Footer() {
                 </Link>
               ))}
             </div>
-
-            <div className="flex flex-col gap-2">
-              <span className="corp-eyebrow">Email</span>
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="text-sm text-[var(--color-board-muted)] hover:text-[var(--color-board-text)] transition-colors"
-              >
-                {siteConfig.email}
-              </a>
-            </div>
           </div>
         </div>
 

@@ -20,29 +20,26 @@ export default function PrivacyPage() {
       />
 
       <ProseLayout>
-        <ProseSection title="1. No Personal Data">
+        <ProseSection title="1. Website Data">
           <p>
-            This website does not collect, store, or process personally
-            identifiable information (PII). There are no contact forms, account
-            systems, cookies, analytics, tracking pixels, or third-party data
-            collection on this site.
+            This website does not use cookies, analytics, tracking pixels, or
+            third-party advertising. We do not maintain user accounts or
+            marketing databases.
           </p>
         </ProseSection>
 
-        <ProseSection title="2. Regulatory Alignment">
+        <ProseSection title="2. Contact Form">
           <p>
-            Because we do not process personal data through this website, our
-            operations are designed to align with privacy frameworks including
-            GDPR, HIPAA, and CCPA. No data subject requests are required for
-            site visitors — there is nothing to access, correct, or delete.
+            If you submit our contact form, the information you provide is
+            transmitted by email to our team via Resend and is not stored in a
+            website database. We use it only to respond to your inquiry.
           </p>
         </ProseSection>
 
-        <ProseSection title="3. Email Contact">
+        <ProseSection title="3. Regulatory Alignment">
           <p>
-            If you contact us via your own email client, that communication
-            occurs outside this website and is governed by your email provider.
-            We do not operate web-based data collection for inquiries.
+            We do not sell personal data. Our practices are designed to align
+            with GDPR, HIPAA, and CCPA principles for B2B communications.
           </p>
         </ProseSection>
 
