@@ -4,6 +4,7 @@ export type ClientEngagement = {
   industry: string;
   summary: string;
   services: readonly string[];
+  logoExt: "svg" | "png";
 };
 
 export type ExpertiseArea = {
@@ -71,6 +72,7 @@ export const siteConfig = {
         "IoT integration",
         "Market platform APIs",
       ],
+      logoExt: "svg",
     },
     {
       id: "hashgraph-group",
@@ -83,6 +85,7 @@ export const siteConfig = {
         "SDK development",
         "Protocol architecture",
       ],
+      logoExt: "svg",
     },
     {
       id: "managination",
@@ -95,6 +98,7 @@ export const siteConfig = {
         "Credential verification systems",
         "Platform integration",
       ],
+      logoExt: "png",
     },
     {
       id: "wattwatchers",
@@ -107,6 +111,7 @@ export const siteConfig = {
         "Python backend APIs",
         "Cloud infrastructure",
       ],
+      logoExt: "png",
     },
   ] satisfies readonly ClientEngagement[],
   engagementModel: [
