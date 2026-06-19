@@ -8,7 +8,7 @@ type ButtonProps = ComponentProps<typeof Link> & {
 
 const variants = {
   primary:
-    "bg-[var(--color-board-accent)] text-[var(--color-board-bg)] hover:brightness-110 shadow-[0_0_24px_rgba(61,165,244,0.25)]",
+    "bg-[var(--color-board-accent)] text-[var(--color-board-bg)] hover:brightness-110 shadow-[0_0_24px_rgba(155,109,255,0.25)]",
   secondary:
     "bg-transparent text-[var(--color-board-silver)] border border-[var(--color-board-border)] hover:border-[var(--color-board-silver)]/40 hover:text-[var(--color-board-text)]",
   ghost:

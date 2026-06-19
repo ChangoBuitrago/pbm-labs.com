@@ -11,7 +11,7 @@
   --color-board-text: #f7f8fa;
   --color-board-silver: #c5ccd6;
   --color-board-muted: #8b939e;
-  --color-board-accent: #3da5f4;
+  --color-board-accent: #9b6dff;
 }
 
 @keyframes fade-up {
@@ -77,8 +77,8 @@ body {
   height: 480px;
   background: radial-gradient(
     ellipse at center,
-    rgba(61, 165, 244, 0.18) 0%,
-    rgba(61, 165, 244, 0.06) 40%,
+    rgba(155, 109, 255, 0.18) 0%,
+    rgba(155, 109, 255, 0.06) 40%,
     transparent 70%
   );
   animation: glow-pulse 8s ease-in-out infinite;

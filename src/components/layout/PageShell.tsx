@@ -111,7 +111,7 @@ export function CtaBand({
   return (
     <div className="relative overflow-hidden rounded-2xl border border-[var(--color-board-border)] bg-[var(--color-board-surface)] p-10 md:p-14">
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(61,165,244,0.08),transparent_60%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(155,109,255,0.08),transparent_60%)]"
         aria-hidden
       />
       <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-8">
