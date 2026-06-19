@@ -1,22 +1,14 @@
 import Link from "next/link";
 import {
   ArrowRight,
-  Building2,
   ChevronRight,
   Code,
   Cpu,
-  Globe,
   Shield,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { siteConfig } from "@/lib/site-config";
-
-const trustItems = [
-  { icon: Building2, label: "B2B Enterprise Only" },
-  { icon: Globe, label: "Sheridan, Wyoming" },
-  { icon: Shield, label: "Security-First Engineering" },
-];
 
 export default function HomePage() {
   return (
@@ -41,25 +33,13 @@ export default function HomePage() {
             environments.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-3 mb-16">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button href="/services" variant="primary" size="lg">
               Our Services <ArrowRight className="w-4 h-4" />
             </Button>
             <Button href="/products" variant="secondary" size="lg">
               Software Products
             </Button>
-          </div>
-
-          <div className="flex flex-wrap gap-6 pt-8 border-t border-slate-800/60">
-            {trustItems.map(({ icon: Icon, label }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2.5 text-sm text-slate-500"
-              >
-                <Icon className="w-4 h-4 text-slate-600" strokeWidth={1.5} />
-                <span>{label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </main>
