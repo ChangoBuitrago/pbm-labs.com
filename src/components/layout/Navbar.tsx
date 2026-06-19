@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
 import { NavbarControls } from "@/components/layout/SiteControls";
-import { Button } from "@/components/ui/Button";
 import { useSite } from "@/components/providers/SiteProvider";
 
 const navItems = [
@@ -63,24 +62,17 @@ export function Navbar() {
               </Link>
             );
           })}
+          <div className="ml-1 pl-1 border-l border-[var(--color-board-border)]">
+            <NavbarControls />
+          </div>
         </div>
 
-        <div className="flex items-center gap-2 md:gap-3">
-          <NavbarControls className="hidden sm:flex" />
-
-          <Button
-            href="/contact"
-            variant="primary"
-            size="sm"
-            className="hidden md:inline-flex"
-          >
-            {t.nav.contact}
-          </Button>
-
+        <div className="flex items-center gap-2 md:hidden">
+          <NavbarControls />
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
-            className="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 text-[var(--color-board-silver)] hover:text-[var(--color-board-text)] transition-colors"
+            className="inline-flex items-center justify-center w-10 h-10 -mr-2 text-[var(--color-board-silver)] hover:text-[var(--color-board-text)] transition-colors"
             aria-expanded={open}
             aria-controls="mobile-nav"
             aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
@@ -99,27 +91,24 @@ export function Navbar() {
           id="mobile-nav"
           className="md:hidden border-t border-[var(--color-board-border)] bg-[var(--color-board-bg)]"
         >
-          <div className="px-6 py-4 space-y-3">
-            <NavbarControls />
-            <div className="space-y-1 pt-2 border-t border-[var(--color-board-border)]">
-              {navItems.map(({ href, key }) => {
-                const isActive =
-                  pathname === href || pathname.startsWith(`${href}/`);
-                return (
-                  <Link
-                    key={href}
-                    href={href}
-                    className={`block px-3 py-3 text-sm font-medium rounded-md transition-colors ${
-                      isActive
-                        ? "text-[var(--color-board-text)] bg-[var(--color-board-surface)]"
-                        : "text-[var(--color-board-muted)] hover:text-[var(--color-board-text)] hover:bg-[var(--color-board-surface)]/60"
-                    }`}
-                  >
-                    {labels[key]}
-                  </Link>
-                );
-              })}
-            </div>
+          <div className="px-6 py-4 space-y-1">
+            {navItems.map(({ href, key }) => {
+              const isActive =
+                pathname === href || pathname.startsWith(`${href}/`);
+              return (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`block px-3 py-3 text-sm font-medium rounded-md transition-colors ${
+                    isActive
+                      ? "text-[var(--color-board-text)] bg-[var(--color-board-surface)]"
+                      : "text-[var(--color-board-muted)] hover:text-[var(--color-board-text)] hover:bg-[var(--color-board-surface)]/60"
+                  }`}
+                >
+                  {labels[key]}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
