@@ -7,9 +7,9 @@ type LogoProps = {
 };
 
 const sizes = {
-  sm: { mark: 28, text: "text-base", sub: "text-[10px]" },
-  md: { mark: 32, text: "text-lg", sub: "text-xs" },
-  lg: { mark: 40, text: "text-xl", sub: "text-sm" },
+  sm: { mark: 28, text: "text-base" },
+  md: { mark: 32, text: "text-lg" },
+  lg: { mark: 40, text: "text-xl" },
 };
 
 export function Logo({
@@ -23,17 +23,10 @@ export function Logo({
     <span className={`inline-flex items-center gap-3 ${className}`}>
       <LogoMark size={s.mark} />
       {showWordmark && (
-        <span className="flex flex-col leading-none">
-          <span
-            className={`${s.text} font-semibold tracking-tight text-white`}
-          >
-            {siteConfig.shortName}
-          </span>
-          <span
-            className={`${s.sub} font-medium tracking-[0.2em] uppercase text-slate-500 mt-0.5`}
-          >
-            Labs LLC
-          </span>
+        <span
+          className={`${s.text} font-semibold tracking-tight text-white`}
+        >
+          {siteConfig.name}
         </span>
       )}
     </span>

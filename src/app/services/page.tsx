@@ -54,7 +54,7 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="Consulting"
         title="Enterprise technology consulting"
-        description="PBM Labs LLC partners with mid-market and enterprise organizations to design, build, and audit high-security digital infrastructure and custom software solutions."
+        description="PBM Labs partners with mid-market and enterprise organizations to design, build, and audit high-security digital infrastructure and custom software solutions."
       />
 
       <div className="grid md:grid-cols-2 gap-5 mb-5">

@@ -77,7 +77,7 @@ export function Footer() {
 
         <div className="pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <p className="text-xs text-slate-600">
-            © 2026 {siteConfig.name}. All rights reserved.
+            © 2026 {siteConfig.legalName}. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
             <span className="relative flex h-2 w-2">

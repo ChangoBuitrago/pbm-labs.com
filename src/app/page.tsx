@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site-config";
 
 const trustItems = [
   { icon: Building2, label: "B2B Enterprise Only" },
-  { icon: Globe, label: "U.S. Registered LLC" },
+  { icon: Globe, label: "Sheridan, Wyoming" },
   { icon: Shield, label: "Security-First Engineering" },
 ];
 
