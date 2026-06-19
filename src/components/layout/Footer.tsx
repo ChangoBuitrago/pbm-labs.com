@@ -2,80 +2,72 @@ import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { siteConfig } from "@/lib/site-config";
 
-export function Footer() {
-  const { line1, line2, city, state, zip } = siteConfig.address;
+const companyLinks = [
+  { href: "/services", label: "Consulting Services" },
+  { href: "/products", label: "Software Products" },
+  { href: "/contact#form", label: "Contact" },
+];
 
+const legalLinks = [
+  { href: "/terms", label: "Terms of Service" },
+  { href: "/privacy", label: "Privacy Policy" },
+];
+
+export function Footer() {
   return (
     <footer className="border-t border-slate-800/60 bg-[#060a10] mt-auto">
-      <div className="max-w-7xl mx-auto px-6 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-800/60">
-          <div className="md:col-span-5 flex flex-col gap-5">
-            <Link href="/" className="w-fit hover:opacity-90 transition-opacity">
-              <Logo size="md" />
-            </Link>
-            <p className="text-sm text-slate-500 max-w-sm leading-relaxed">
-              Enterprise technology consulting and custom software development.
-              Builders of the {siteConfig.productName} for B2B data validation.
-            </p>
-            <p className="text-xs text-slate-600 leading-relaxed font-mono">
-              {line1}
-              <br />
-              {line2}
-              <br />
-              {city}, {state} {zip}
-            </p>
-          </div>
+      <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <Link href="/" className="w-fit hover:opacity-90 transition-opacity">
+            <Logo size="md" />
+          </Link>
 
-          <div className="md:col-span-3 flex flex-col gap-3">
-            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-slate-400">
-              Corporate
-            </span>
-            <Link
-              href="/services"
-              className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
-            >
-              Consulting Services
-            </Link>
-            <Link
-              href="/products"
-              className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
-            >
-              Software Products
-            </Link>
-            <Link
-              href="/contact#form"
-              className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
-            >
-              Contact
-            </Link>
-          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-16 lg:gap-24">
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-slate-400">
+                Company
+              </span>
+              {companyLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
 
-          <div className="md:col-span-4 flex flex-col gap-3">
-            <span className="text-xs font-semibold tracking-[0.15em] uppercase text-slate-400">
-              Legal & Compliance
-            </span>
-            <Link
-              href="/terms"
-              className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
-            >
-              Terms of Service
-            </Link>
-            <Link
-              href="/privacy"
-              className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
-            >
-              Privacy Policy
-            </Link>
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
-            >
-              {siteConfig.email}
-            </a>
+            <div className="flex flex-col gap-3">
+              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-slate-400">
+                Legal
+              </span>
+              {legalLinks.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex flex-col gap-3 col-span-2 sm:col-span-1">
+              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-slate-400">
+                Email
+              </span>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
+              >
+                {siteConfig.email}
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="mt-10 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-xs text-slate-600">
             © 2026 {siteConfig.legalName}. All rights reserved.
           </p>
