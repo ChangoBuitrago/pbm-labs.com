@@ -8,10 +8,10 @@ export const STORAGE_KEYS = {
 
 export const DEFAULT_LOCALE: Locale = "en";
 
-export const LOCALES: { code: Locale; label: string }[] = [
-  { code: "en", label: "EN" },
-  { code: "es", label: "ES" },
-  { code: "de", label: "DE" },
+export const LOCALES: { code: Locale; label: string; name: string }[] = [
+  { code: "en", label: "EN", name: "English" },
+  { code: "es", label: "ES", name: "Español" },
+  { code: "de", label: "DE", name: "Deutsch" },
 ];
 
 export function readStoredLocale(): Locale {
