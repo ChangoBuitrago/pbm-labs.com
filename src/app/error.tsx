@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { PageShell } from "@/components/layout/PageShell";
-import { Button } from "@/components/ui/Button";
+import { Button, buttonClassName } from "@/components/ui/Button";
 
 export default function Error({
   error,
@@ -31,7 +31,7 @@ export default function Error({
           <button
             type="button"
             onClick={reset}
-            className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium rounded-lg bg-[var(--color-board-accent)] text-[var(--color-board-bg)] hover:brightness-110 transition-all"
+            className={buttonClassName({ variant: "primary", size: "md" })}
           >
             Try again
           </button>

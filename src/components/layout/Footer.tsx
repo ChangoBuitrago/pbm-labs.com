@@ -68,12 +68,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[var(--color-board-border)] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div className="mt-12 pt-8 border-t border-[var(--color-board-border)]">
           <p className="text-xs text-[var(--color-board-muted)]">
             © 2026 {siteConfig.legalName}. All rights reserved.
-          </p>
-          <p className="text-xs text-[var(--color-board-muted)] font-mono">
-            Sheridan, WY · Remote-first
           </p>
         </div>
       </div>

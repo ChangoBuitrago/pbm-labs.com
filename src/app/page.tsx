@@ -6,7 +6,6 @@ import {
   PageShell,
   SectionHeading,
   SectionLink,
-  StatGrid,
 } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -17,13 +16,6 @@ import {
   ExpertiseGrid,
 } from "@/components/sections/ClientsSection";
 import { siteConfig } from "@/lib/site-config";
-
-const heroStats = [
-  { value: "4", label: "Industry verticals" },
-  { value: "100%", label: "Remote delivery" },
-  { value: "B2B", label: "Enterprise only" },
-  { value: "3", label: "Engagement phases" },
-];
 
 export default function HomePage() {
   return (
@@ -51,7 +43,6 @@ export default function HomePage() {
             View services
           </Button>
         </div>
-        <StatGrid stats={heroStats} />
       </PageShell>
 
       <PageSection bordered>
