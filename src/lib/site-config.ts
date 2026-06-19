@@ -28,12 +28,7 @@ export const siteConfig = {
     country: "United States",
   },
   email: "hello@pbm-labs.com",
-  navigation: [
-    { href: "/company", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/work", label: "Work" },
-    { href: "/contact", label: "Contact" },
-  ],
+  navPaths: ["/company", "/services", "/work", "/contact"] as const,
   about: {
     headline: "Engineering partner for enterprise infrastructure",
     paragraphs: [

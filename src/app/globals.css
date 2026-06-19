@@ -14,6 +14,35 @@
   --color-board-accent: #3da5f4;
 }
 
+:root,
+[data-theme="dark"] {
+  --color-board-bg: #0b0e13;
+  --color-board-surface: #12151c;
+  --color-board-elevated: #1a1f2a;
+  --color-board-border: #252b38;
+  --color-board-text: #f7f8fa;
+  --color-board-silver: #c5ccd6;
+  --color-board-muted: #8b939e;
+  --color-board-accent: #3da5f4;
+  --hero-glow-inner: rgba(61, 165, 244, 0.18);
+  --hero-glow-outer: rgba(61, 165, 244, 0.06);
+  --cta-glow: rgba(61, 165, 244, 0.08);
+}
+
+[data-theme="light"] {
+  --color-board-bg: #f7f8fa;
+  --color-board-surface: #ffffff;
+  --color-board-elevated: #f0f2f5;
+  --color-board-border: #e2e6ed;
+  --color-board-text: #0b0e13;
+  --color-board-silver: #4a5568;
+  --color-board-muted: #6b7280;
+  --color-board-accent: #2563eb;
+  --hero-glow-inner: rgba(37, 99, 235, 0.12);
+  --hero-glow-outer: rgba(37, 99, 235, 0.04);
+  --cta-glow: rgba(37, 99, 235, 0.06);
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -77,8 +106,8 @@ body {
   height: 480px;
   background: radial-gradient(
     ellipse at center,
-    rgba(61, 165, 244, 0.18) 0%,
-    rgba(61, 165, 244, 0.06) 40%,
+    var(--hero-glow-inner) 0%,
+    var(--hero-glow-outer) 40%,
     transparent 70%
   );
   animation: glow-pulse 8s ease-in-out infinite;

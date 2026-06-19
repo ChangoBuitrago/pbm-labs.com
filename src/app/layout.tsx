@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
+import { CookieBanner } from "@/components/layout/SiteControls";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { SiteProvider } from "@/components/providers/SiteProvider";
+import { ThemeScript } from "@/components/providers/ThemeScript";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
@@ -55,12 +58,19 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
+      <head>
+        <ThemeScript />
+      </head>
       <body className="min-h-full flex flex-col selection:bg-[var(--color-board-accent)]/25">
-        <JsonLd />
-        <Navbar />
-        <div className="flex-grow">{children}</div>
-        <Footer />
+        <SiteProvider>
+          <JsonLd />
+          <Navbar />
+          <div className="flex-grow">{children}</div>
+          <Footer />
+          <CookieBanner />
+        </SiteProvider>
       </body>
     </html>
   );

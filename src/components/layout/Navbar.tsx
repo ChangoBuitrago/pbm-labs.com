@@ -5,12 +5,28 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
+import { NavbarControls } from "@/components/layout/SiteControls";
 import { Button } from "@/components/ui/Button";
-import { siteConfig } from "@/lib/site-config";
+import { useSite } from "@/components/providers/SiteProvider";
+
+const navItems = [
+  { href: "/company", key: "about" as const },
+  { href: "/services", key: "services" as const },
+  { href: "/work", key: "work" as const },
+  { href: "/contact", key: "contact" as const },
+];
 
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { t } = useSite();
+
+  const labels = {
+    about: t.nav.about,
+    services: t.nav.services,
+    work: t.nav.work,
+    contact: t.nav.contact,
+  };
 
   useEffect(() => {
     setOpen(false);
@@ -25,13 +41,13 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 border-b border-[var(--color-board-border)]/80 bg-[var(--color-board-bg)]/90 backdrop-blur-xl">
-      <div className="flex items-center justify-between px-6 h-16 max-w-6xl mx-auto">
-        <Link href="/" className="hover:opacity-90 transition-opacity">
+      <div className="flex items-center justify-between px-6 h-16 max-w-6xl mx-auto gap-4">
+        <Link href="/" className="hover:opacity-90 transition-opacity shrink-0">
           <Logo size="sm" />
         </Link>
 
         <div className="hidden md:flex items-center gap-1">
-          {siteConfig.navigation.map(({ href, label }) => {
+          {navItems.map(({ href, key }) => {
             const isActive = pathname === href || pathname.startsWith(`${href}/`);
             return (
               <Link
@@ -43,20 +59,22 @@ export function Navbar() {
                     : "text-[var(--color-board-muted)] hover:text-[var(--color-board-silver)]"
                 }`}
               >
-                {label}
+                {labels[key]}
               </Link>
             );
           })}
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
+          <NavbarControls className="hidden sm:flex" />
+
           <Button
             href="/contact"
             variant="primary"
             size="sm"
             className="hidden md:inline-flex"
           >
-            Contact
+            {t.nav.contact}
           </Button>
 
           <button
@@ -65,7 +83,7 @@ export function Navbar() {
             className="md:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 text-[var(--color-board-silver)] hover:text-[var(--color-board-text)] transition-colors"
             aria-expanded={open}
             aria-controls="mobile-nav"
-            aria-label={open ? "Close menu" : "Open menu"}
+            aria-label={open ? t.nav.closeMenu : t.nav.openMenu}
           >
             {open ? (
               <X className="w-5 h-5" strokeWidth={1.5} />
@@ -81,23 +99,27 @@ export function Navbar() {
           id="mobile-nav"
           className="md:hidden border-t border-[var(--color-board-border)] bg-[var(--color-board-bg)]"
         >
-          <div className="px-6 py-4 space-y-1">
-            {siteConfig.navigation.map(({ href, label }) => {
-              const isActive = pathname === href || pathname.startsWith(`${href}/`);
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  className={`block px-3 py-3 text-sm font-medium rounded-md transition-colors ${
-                    isActive
-                      ? "text-[var(--color-board-text)] bg-[var(--color-board-surface)]"
-                      : "text-[var(--color-board-muted)] hover:text-[var(--color-board-text)] hover:bg-[var(--color-board-surface)]/60"
-                  }`}
-                >
-                  {label}
-                </Link>
-              );
-            })}
+          <div className="px-6 py-4 space-y-3">
+            <NavbarControls />
+            <div className="space-y-1 pt-2 border-t border-[var(--color-board-border)]">
+              {navItems.map(({ href, key }) => {
+                const isActive =
+                  pathname === href || pathname.startsWith(`${href}/`);
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={`block px-3 py-3 text-sm font-medium rounded-md transition-colors ${
+                      isActive
+                        ? "text-[var(--color-board-text)] bg-[var(--color-board-surface)]"
+                        : "text-[var(--color-board-muted)] hover:text-[var(--color-board-text)] hover:bg-[var(--color-board-surface)]/60"
+                    }`}
+                  >
+                    {labels[key]}
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
       )}
