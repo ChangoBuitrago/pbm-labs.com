@@ -26,7 +26,7 @@ export function PageShell({
     <div className={`animate-in relative ${className}`}>
       {hero && <div className="hero-glow" aria-hidden />}
       <div
-        className={`relative ${widthClass[width]} mx-auto px-6 ${hero ? "py-24 md:py-32 lg:py-36" : "py-16 md:py-24"}`}
+        className={`relative ${widthClass[width]} mx-auto px-6 ${hero ? "py-20 md:py-28" : "py-14 md:py-20"}`}
       >
         {children}
       </div>
@@ -49,7 +49,7 @@ export function PageSection({
     <section
       className={`${bordered ? "border-t border-[var(--color-board-border)]" : ""} ${muted ? "bg-[var(--color-board-surface)]/40" : ""} ${className}`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">{children}</div>
+      <div className="max-w-6xl mx-auto px-6 py-14 md:py-20">{children}</div>
     </section>
   );
 }
@@ -66,14 +66,14 @@ export function SectionHeading({
   action?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-14">
+    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
       <div className="max-w-xl">
-        {eyebrow && <p className="corp-eyebrow mb-3">{eyebrow}</p>}
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[var(--color-board-text)] tracking-[-0.02em]">
+        {eyebrow && <p className="corp-eyebrow mb-2">{eyebrow}</p>}
+        <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-board-text)] tracking-tight">
           {title}
         </h2>
         {description && (
-          <p className="mt-3 text-[var(--color-board-muted)] leading-relaxed">
+          <p className="mt-2 text-[var(--color-board-muted)] text-sm leading-relaxed">
             {description}
           </p>
         )}
@@ -101,7 +101,7 @@ export function CtaBand({
   title,
   description,
   buttonLabel = "Contact us",
-  buttonHref = "/contact#form",
+  buttonHref = "/contact",
 }: {
   title: string;
   description: string;
@@ -109,41 +109,20 @@ export function CtaBand({
   buttonHref?: string;
 }) {
   return (
-    <div className="relative overflow-hidden rounded-2xl border border-[var(--color-board-border)] bg-[var(--color-board-surface)] p-10 md:p-14">
-      <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(61,165,244,0.08),transparent_60%)]"
-        aria-hidden
-      />
-      <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+    <div className="rounded-lg border border-[var(--color-board-border)] bg-[var(--color-board-surface)] p-8 md:p-10">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div className="max-w-lg">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-board-text)] tracking-[-0.02em] mb-3">
+          <h2 className="text-xl md:text-2xl font-semibold text-[var(--color-board-text)] tracking-tight mb-2">
             {title}
           </h2>
-          <p className="text-[var(--color-board-muted)] leading-relaxed">
+          <p className="text-[var(--color-board-muted)] text-sm leading-relaxed">
             {description}
           </p>
         </div>
-        <Button href={buttonHref} variant="primary" size="lg" className="shrink-0">
+        <Button href={buttonHref} variant="primary" size="md" className="shrink-0">
           {buttonLabel}
         </Button>
       </div>
-    </div>
-  );
-}
-
-export function StatGrid({
-  stats,
-}: {
-  stats: { value: string; label: string }[];
-}) {
-  return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-[var(--color-board-border)] pt-10 mt-10">
-      {stats.map(({ value, label }) => (
-        <div key={label}>
-          <p className="stat-value">{value}</p>
-          <p className="stat-label">{label}</p>
-        </div>
-      ))}
     </div>
   );
 }

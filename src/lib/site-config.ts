@@ -28,13 +28,17 @@ export const siteConfig = {
     country: "United States",
   },
   email: "hello@pbm-labs.com",
-  productName: "PBM Validation API",
+  navigation: [
+    { href: "/company", label: "About" },
+    { href: "/services", label: "Services" },
+    { href: "/work", label: "Work" },
+    { href: "/contact", label: "Contact" },
+  ],
   about: {
     headline: "Engineering partner for enterprise infrastructure",
     paragraphs: [
       "PBM Labs is a technology consulting firm focused on custom software development, security architecture, and production-grade platform engineering. We work with enterprise and growth-stage organizations that need reliable systems — not slide decks.",
       "Our team has delivered backend platforms, identity infrastructure, IoT integrations, and cryptographic validation tooling for organizations in energy, enterprise software, and regulated industries. Engagements are remote-first, milestone-driven, and scoped to measurable engineering outcomes.",
-      "Alongside client work, we develop internal software products — including the PBM Validation API — to automate data integrity checks in high-stakes corporate workflows.",
     ],
   },
   expertise: [

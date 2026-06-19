@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import {
-  CtaBand,
-  PageSection,
-  PageShell,
-  SectionHeading,
-} from "@/components/layout/PageShell";
-import { EngagementModel, ExpertiseGrid } from "@/components/sections/ClientsSection";
+import { CtaBand, PageSection, PageShell, SectionHeading } from "@/components/layout/PageShell";
+import { ExpertiseGrid } from "@/components/sections/ClientsSection";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Company",
+  title: "About",
   description: siteConfig.about.headline,
 };
 
@@ -26,9 +21,11 @@ export default function CompanyPage() {
           size="large"
         />
 
-        <div className="max-w-2xl space-y-5 text-[var(--color-board-muted)] text-base leading-relaxed">
+        <div className="max-w-2xl text-[var(--color-board-muted)] text-sm leading-relaxed">
           {siteConfig.about.paragraphs.slice(1).map((paragraph) => (
-            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+            <p key={paragraph.slice(0, 40)} className="mt-4">
+              {paragraph}
+            </p>
           ))}
         </div>
       </PageShell>
@@ -38,15 +35,10 @@ export default function CompanyPage() {
         <ExpertiseGrid />
       </PageSection>
 
-      <PageSection bordered>
-        <SectionHeading eyebrow="Methodology" title="Engagement model" />
-        <EngagementModel />
-      </PageSection>
-
       <PageSection>
         <CtaBand
           title="Discuss your engineering needs"
-          description="Contract engagements for enterprise and growth-stage teams building identity, IoT, and security-sensitive platforms."
+          description="Contract engagements for enterprise and growth-stage teams."
         />
       </PageSection>
     </>

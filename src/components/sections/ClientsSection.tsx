@@ -55,7 +55,7 @@ export function EngagementsSection({
 
       {showLink && engagements.length < siteConfig.engagements.length && (
         <div className="mt-10">
-          <Link href="/clients" className="section-link">
+          <Link href="/work" className="section-link">
             View all engagements <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

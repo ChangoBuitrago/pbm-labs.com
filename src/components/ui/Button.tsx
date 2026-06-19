@@ -10,21 +10,21 @@ type ButtonProps = ComponentProps<typeof Link> & {
 };
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full transition-all duration-200 select-none whitespace-nowrap";
+  "inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors duration-150 select-none whitespace-nowrap";
 
 const variants: Record<ButtonVariant, string> = {
   primary:
-    "bg-[var(--color-board-accent)] text-[var(--color-board-bg)] font-semibold tracking-tight shadow-[0_0_20px_rgba(61,165,244,0.2)] hover:brightness-110 hover:shadow-[0_0_28px_rgba(61,165,244,0.32)] active:scale-[0.98]",
+    "bg-[var(--color-board-accent)] text-[var(--color-board-bg)] hover:brightness-110 active:brightness-95",
   secondary:
-    "bg-transparent text-[var(--color-board-silver)] font-medium tracking-normal border border-[var(--color-board-border)] hover:border-[var(--color-board-silver)]/45 hover:bg-[var(--color-board-surface)]/60 hover:text-[var(--color-board-text)] active:scale-[0.98]",
+    "bg-transparent text-[var(--color-board-silver)] border border-[var(--color-board-border)] hover:border-[var(--color-board-silver)]/40 hover:text-[var(--color-board-text)]",
   ghost:
-    "bg-transparent text-[var(--color-board-muted)] font-medium tracking-normal hover:text-[var(--color-board-text)] hover:bg-[var(--color-board-surface)]/40 active:scale-[0.98]",
+    "bg-transparent text-[var(--color-board-muted)] hover:text-[var(--color-board-text)]",
 };
 
 const sizes: Record<ButtonSize, string> = {
-  sm: "h-9 px-4 text-[13px] leading-none",
-  md: "h-10 px-6 text-sm leading-none",
-  lg: "h-12 px-8 text-[15px] leading-none",
+  sm: "h-9 px-4 text-[13px]",
+  md: "h-10 px-5 text-sm",
+  lg: "h-11 px-6 text-sm",
 };
 
 export function buttonClassName({
@@ -64,9 +64,9 @@ export function ButtonSubmit({
 }) {
   const submitVariants: Record<"primary" | "secondary", string> = {
     primary:
-      "bg-[var(--color-board-accent)] text-[var(--color-board-bg)] font-semibold tracking-tight shadow-[0_0_20px_rgba(61,165,244,0.2)] hover:brightness-110 hover:shadow-[0_0_28px_rgba(61,165,244,0.32)] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:brightness-100 disabled:hover:shadow-[0_0_20px_rgba(61,165,244,0.2)] disabled:active:scale-100",
+      "bg-[var(--color-board-accent)] text-[var(--color-board-bg)] hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed",
     secondary:
-      "bg-[var(--color-board-elevated)] text-[var(--color-board-text)] font-medium tracking-normal border border-[var(--color-board-border)] hover:border-[var(--color-board-silver)]/30 hover:bg-[var(--color-board-elevated)]/80 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100",
+      "bg-[var(--color-board-elevated)] text-[var(--color-board-text)] border border-[var(--color-board-border)] hover:border-[var(--color-board-silver)]/30 disabled:opacity-50 disabled:cursor-not-allowed",
   };
 
   return (

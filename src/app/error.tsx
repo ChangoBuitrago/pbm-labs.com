@@ -42,7 +42,7 @@ export default function Error({
         <p className="text-xs text-[var(--color-board-muted)] mt-8">
           Need help?{" "}
           <Link
-            href="/contact#form"
+            href="/contact"
             className="text-[var(--color-board-accent)] hover:brightness-110"
           >
             Contact support
