@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Lock, Mail, Server } from "lucide-react";
+import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { ProseLayout, ProseSection } from "@/components/ui/ProseLayout";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="max-w-3xl mx-auto px-6 py-20 text-slate-300 animate-in">
+    <PageShell width="narrow">
       <PageHeader
         eyebrow="Legal"
         title="B2B Privacy Policy"
@@ -18,20 +20,17 @@ export default function PrivacyPage() {
         align="left"
       />
 
-      <div className="space-y-10 text-sm leading-relaxed">
-        <section>
-          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
-            1. Information We Collect
-          </h2>
-          <p className="leading-relaxed mb-4 text-slate-400">
+      <ProseLayout>
+        <ProseSection title="1. Information We Collect">
+          <p>
             As a technology consulting and software provider, our collection of
             data is strictly limited to information necessary to manage business
             engagements and operate our infrastructure.
           </p>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="corp-panel p-5">
+          <div className="grid sm:grid-cols-2 gap-4 pt-2">
+            <div className="rounded-md border border-slate-800/60 bg-slate-950/40 p-4">
               <strong className="text-slate-200 block mb-2 flex items-center gap-2 text-sm">
-                <Lock className="w-4 h-4 text-blue-500" strokeWidth={1.5} />{" "}
+                <Lock className="w-4 h-4 text-blue-500" strokeWidth={1.5} />
                 Client Data
               </strong>
               <p className="text-slate-500 text-sm">
@@ -39,9 +38,9 @@ export default function PrivacyPage() {
                 required for consulting contracts and invoicing.
               </p>
             </div>
-            <div className="corp-panel p-5">
+            <div className="rounded-md border border-slate-800/60 bg-slate-950/40 p-4">
               <strong className="text-slate-200 block mb-2 flex items-center gap-2 text-sm">
-                <Server className="w-4 h-4 text-blue-500" strokeWidth={1.5} />{" "}
+                <Server className="w-4 h-4 text-blue-500" strokeWidth={1.5} />
                 Infrastructure Data
               </strong>
               <p className="text-slate-500 text-sm">
@@ -51,30 +50,24 @@ export default function PrivacyPage() {
               </p>
             </div>
           </div>
-        </section>
+        </ProseSection>
 
-        <section>
-          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
-            2. No Sale of Data
-          </h2>
-          <p className="leading-relaxed text-slate-400">
+        <ProseSection title="2. No Sale of Data">
+          <p>
             We strictly provide engineering services and enterprise software. We
             do not sell, rent, or lease Client data, metadata, or processed
             information to any third parties, data brokers, or advertising
             networks under any circumstances.
           </p>
-        </section>
+        </ProseSection>
 
-        <section>
-          <div className="corp-panel p-8 text-center">
+        <ProseSection title="3. Contact">
+          <div className="text-center py-2">
             <Mail
-              className="w-7 h-7 text-slate-500 mx-auto mb-3"
+              className="w-6 h-6 text-slate-500 mx-auto mb-3"
               strokeWidth={1.5}
             />
-            <h2 className="text-base font-semibold text-white mb-2">
-              Contact Compliance
-            </h2>
-            <p className="text-slate-500 mb-4 text-sm">
+            <p className="text-slate-500 mb-3 text-sm">
               For inquiries regarding privacy or data handling during consulting
               engagements, please contact us.
             </p>
@@ -85,8 +78,8 @@ export default function PrivacyPage() {
               {siteConfig.email}
             </a>
           </div>
-        </section>
-      </div>
-    </div>
+        </ProseSection>
+      </ProseLayout>
+    </PageShell>
   );
 }

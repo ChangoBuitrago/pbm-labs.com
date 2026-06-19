@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Building2, CheckCircle2, Mail } from "lucide-react";
+import { PageShell } from "@/components/layout/PageShell";
 import { ButtonSubmit } from "@/components/ui/Button";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { SectionLabel } from "@/components/ui/Card";
@@ -85,18 +86,18 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-6 py-20 animate-in">
+    <PageShell width="default">
       <PageHeader
         eyebrow="Contact"
         title="Get in touch"
         description="Reach our consulting team or request access to enterprise software."
       />
 
-      <div className="grid md:grid-cols-5 gap-10">
-        <div className="md:col-span-2 space-y-8">
+      <div className="grid lg:grid-cols-[280px_1fr] gap-8 lg:gap-12 items-start">
+        <aside className="corp-panel p-6 space-y-6 lg:sticky lg:top-24">
           <div>
             <SectionLabel>Headquarters</SectionLabel>
-            <div className="flex items-start gap-3">
+            <div className="flex items-start gap-3 mt-2">
               <Building2
                 className="w-4 h-4 text-slate-600 mt-0.5 shrink-0"
                 strokeWidth={1.5}
@@ -113,29 +114,26 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div>
+          <div className="border-t border-slate-800/60 pt-6">
             <SectionLabel>Email</SectionLabel>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 mt-2">
               <Mail
                 className="w-4 h-4 text-slate-600 shrink-0"
                 strokeWidth={1.5}
               />
               <a
                 href={`mailto:${email}`}
-                className="text-slate-300 hover:text-white transition-colors text-sm"
+                className="text-slate-300 hover:text-white transition-colors text-sm break-all"
               >
                 {email}
               </a>
             </div>
           </div>
-        </div>
+        </aside>
 
-        <div
-          id="form"
-          className="md:col-span-3 corp-panel p-8 scroll-mt-24"
-        >
+        <div id="form" className="corp-panel p-6 md:p-8 scroll-mt-24 min-w-0">
           {status === "success" ? (
-            <div className="text-center py-10">
+            <div className="text-center py-12 md:py-16">
               <CheckCircle2
                 className="w-10 h-10 text-emerald-500 mx-auto mb-4"
                 strokeWidth={1.5}
@@ -252,7 +250,7 @@ export default function ContactPage() {
                 <textarea
                   id="message"
                   name="message"
-                  rows={4}
+                  rows={5}
                   required
                   value={form.message}
                   onChange={(e) => updateField("message", e.target.value)}
@@ -279,6 +277,6 @@ export default function ContactPage() {
           )}
         </div>
       </div>
-    </div>
+    </PageShell>
   );
 }

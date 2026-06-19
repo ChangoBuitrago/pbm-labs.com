@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { FileCheck, Shield } from "lucide-react";
+import { PageShell } from "@/components/layout/PageShell";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { ProseLayout, ProseSection } from "@/components/ui/ProseLayout";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="max-w-3xl mx-auto px-6 py-20 text-slate-300 animate-in">
+    <PageShell width="narrow">
       <PageHeader
         eyebrow="Legal"
         title="Terms of Service"
@@ -18,36 +20,35 @@ export default function TermsPage() {
         align="left"
       />
 
-      <div className="space-y-10 text-sm leading-relaxed">
-        <section>
-          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
-            1. Company Purpose & B2B Exclusivity
-          </h2>
-          <p className="leading-relaxed text-slate-400">
+      <ProseLayout>
+        <ProseSection title="1. Company Purpose & B2B Exclusivity">
+          <p>
             {siteConfig.name} (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or
             &quot;our&quot;) operates exclusively to provide{" "}
-            <strong>technology consulting and software development services</strong>
+            <strong className="text-slate-300">
+              technology consulting and software development services
+            </strong>
             . The tools, APIs, and infrastructure we develop (&quot;Services&quot;)
             are provided strictly for commercial, business, and enterprise use. By
             accessing or using our Services, you represent and warrant that you
             are acting on behalf of a business entity and not as an individual
             consumer. We do not offer consumer services.
           </p>
-        </section>
+        </ProseSection>
 
-        <section>
-          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
-            2. Nature of the Software Services
-          </h2>
-          <p className="leading-relaxed mb-4 text-slate-400">
+        <ProseSection title="2. Nature of the Software Services">
+          <p>
             As part of our software development and technology consulting
             services, we provide mathematical and cryptographic validation tools
             to analyze data integrity, specifically focusing on email metadata
             (such as DKIM and SMTP origin).
           </p>
-          <ul className="list-none space-y-4 text-slate-400 corp-panel p-6">
+          <ul className="space-y-4 pt-2">
             <li className="flex gap-3">
-              <Shield className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" strokeWidth={1.5} />
+              <Shield
+                className="w-5 h-5 text-blue-500 shrink-0 mt-0.5"
+                strokeWidth={1.5}
+              />
               <div>
                 <strong className="text-slate-200 block mb-1">
                   Not a Financial Service
@@ -59,7 +60,10 @@ export default function TermsPage() {
               </div>
             </li>
             <li className="flex gap-3">
-              <FileCheck className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" strokeWidth={1.5} />
+              <FileCheck
+                className="w-5 h-5 text-blue-500 shrink-0 mt-0.5"
+                strokeWidth={1.5}
+              />
               <div>
                 <strong className="text-slate-200 block mb-1">
                   Information Only
@@ -70,13 +74,10 @@ export default function TermsPage() {
               </div>
             </li>
           </ul>
-        </section>
+        </ProseSection>
 
-        <section>
-          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
-            3. Limitation of Liability and Assumption of Risk
-          </h2>
-          <p className="leading-relaxed text-slate-400">
+        <ProseSection title="3. Limitation of Liability and Assumption of Risk">
+          <p>
             The Company provides custom software and data validation tools. We do
             not participate in, and have no visibility into, the underlying
             commercial transactions, contracts, or payments of our clients. To the
@@ -85,13 +86,10 @@ export default function TermsPage() {
             consequential, or punitive damages. The Client assumes full
             responsibility for their internal business controls.
           </p>
-        </section>
+        </ProseSection>
 
-        <section>
-          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
-            4. Fees, Billing, and Refunds
-          </h2>
-          <p className="leading-relaxed text-slate-400">
+        <ProseSection title="4. Fees, Billing, and Refunds">
+          <p>
             Access to our consulting services and software APIs is billed via
             project milestones, subscription, or metered usage. All fees are
             stated in U.S. Dollars. Due to the nature of digital infrastructure
@@ -99,19 +97,16 @@ export default function TermsPage() {
             Company does not entertain chargebacks for delivered software or
             metered infrastructure usage.
           </p>
-        </section>
+        </ProseSection>
 
-        <section>
-          <h2 className="text-lg font-semibold text-white mb-3 tracking-tight">
-            5. Governing Law and Dispute Resolution
-          </h2>
-          <p className="leading-relaxed text-slate-400">
+        <ProseSection title="5. Governing Law and Dispute Resolution">
+          <p>
             These Terms shall be governed by and construed in accordance with
             the laws of the State of Wyoming, without regard to its conflict of
             law provisions.
           </p>
-        </section>
-      </div>
-    </div>
+        </ProseSection>
+      </ProseLayout>
+    </PageShell>
   );
 }
