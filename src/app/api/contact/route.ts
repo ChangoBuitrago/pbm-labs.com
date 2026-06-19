@@ -17,8 +17,10 @@ function isValidEmail(value: string) {
 function parsePayload(body: unknown): ContactPayload | null {
   if (!body || typeof body !== "object") return null;
 
-  const { firstName, lastName, email, inquiryType, message } =
+  const { firstName, lastName, email, inquiryType, message, _hp } =
     body as Record<string, unknown>;
+
+  if (typeof _hp === "string" && _hp.trim()) return null;
 
   if (
     typeof firstName !== "string" ||
@@ -44,6 +46,7 @@ function parsePayload(body: unknown): ContactPayload | null {
     !trimmed.email ||
     !trimmed.inquiryType ||
     !trimmed.message ||
+    trimmed.message.length > 5000 ||
     !isValidEmail(trimmed.email)
   ) {
     return null;

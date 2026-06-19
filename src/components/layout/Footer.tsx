@@ -3,8 +3,10 @@ import { Logo } from "@/components/brand/Logo";
 import { siteConfig } from "@/lib/site-config";
 
 const companyLinks = [
+  { href: "/company", label: "About" },
   { href: "/services", label: "Consulting Services" },
   { href: "/products", label: "Software Products" },
+  { href: "/clients", label: "Clients" },
   { href: "/contact#form", label: "Contact" },
 ];
 

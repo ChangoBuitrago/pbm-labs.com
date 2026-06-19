@@ -21,6 +21,7 @@ const emptyForm = {
   email: "",
   inquiryType: inquiryOptions[0] as string,
   message: "",
+  _hp: "",
 };
 
 export default function ContactPage() {
@@ -155,6 +156,16 @@ export default function ContactPage() {
             </div>
           ) : (
             <form className="space-y-5" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="_hp"
+                value={form._hp}
+                onChange={(e) => updateField("_hp", e.target.value)}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden
+              />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <label

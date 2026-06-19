@@ -10,6 +10,11 @@ import { PageSection, PageShell, SectionHeading } from "@/components/layout/Page
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageHeader } from "@/components/ui/PageHeader";
+import {
+  ClientNamesBar,
+  ClientsSection,
+  ExpertiseGrid,
+} from "@/components/sections/ClientsSection";
 import { siteConfig } from "@/lib/site-config";
 
 export default function HomePage() {
@@ -20,29 +25,62 @@ export default function HomePage() {
           eyebrow="Enterprise Technology Consulting"
           title={
             <>
-              Secure infrastructure and{" "}
-              <span className="text-slate-400">software engineering</span> for
-              enterprise teams.
+              Custom software and{" "}
+              <span className="text-slate-400">infrastructure engineering</span>{" "}
+              for enterprise teams.
             </>
           }
-          description={`${siteConfig.name} designs enterprise software architecture and builds cryptographic data validation tools for high-stakes corporate environments.`}
+          description={siteConfig.description}
           align="left"
           size="large"
         />
-        <div className="flex flex-col sm:flex-row gap-3 -mt-4">
+        <div className="flex flex-col sm:flex-row gap-3 -mt-4 mb-12">
           <Button href="/services" variant="primary" size="lg">
             Our Services <ArrowRight className="w-4 h-4" />
           </Button>
-          <Button href="/products" variant="secondary" size="lg">
-            Software Products
+          <Button href="/contact#form" variant="secondary" size="lg">
+            Contact
           </Button>
         </div>
+        <ClientNamesBar />
       </PageShell>
+
+      <PageSection bordered>
+        <SectionHeading
+          eyebrow="Client Engagements"
+          title="Trusted by enterprise engineering teams"
+          action={
+            <Link
+              href="/clients"
+              className="text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 w-fit transition-colors"
+            >
+              View all clients <ChevronRight className="w-4 h-4" />
+            </Link>
+          }
+        />
+        <ClientsSection showLink={false} limit={4} />
+      </PageSection>
 
       <PageSection bordered muted>
         <SectionHeading
-          eyebrow="Core Competencies"
-          title="Engineering expertise for complex corporate environments"
+          eyebrow="Practice Areas"
+          title="Technical depth across platform engineering"
+          action={
+            <Link
+              href="/company"
+              className="text-sm text-blue-400 hover:text-blue-300 font-medium flex items-center gap-1 w-fit transition-colors"
+            >
+              About the company <ChevronRight className="w-4 h-4" />
+            </Link>
+          }
+        />
+        <ExpertiseGrid />
+      </PageSection>
+
+      <PageSection bordered>
+        <SectionHeading
+          eyebrow="Services & Products"
+          title="Consulting and proprietary software"
           action={
             <Link
               href="/services"
@@ -60,8 +98,8 @@ export default function HomePage() {
               Custom Development
             </h3>
             <p className="text-slate-500 text-sm leading-relaxed flex-grow">
-              End-to-end software engineering — internal tools, APIs, and
-              scalable platforms aligned with strict business requirements.
+              APIs, admin tooling, and full-stack applications — from identity
+              SDKs to IoT backends and internal business platforms.
             </p>
           </Card>
 
@@ -71,8 +109,8 @@ export default function HomePage() {
               Security Architecture
             </h3>
             <p className="text-slate-500 text-sm leading-relaxed flex-grow">
-              Zero-trust implementation, business logic vulnerability audits,
-              and cryptographic validation layers.
+              Cryptographic verification, access control design, and data
+              validation layers for regulated B2B environments.
             </p>
           </Card>
 
@@ -86,8 +124,8 @@ export default function HomePage() {
                 {siteConfig.productName}
               </h3>
               <p className="text-slate-500 text-sm leading-relaxed flex-grow mb-4">
-                Proprietary software for automated cryptographic verification in
-                accounts payable workflows.
+                Internal software product for automated email metadata
+                verification in accounts payable workflows.
               </p>
               <span className="text-sm text-blue-400 font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                 Learn more <ArrowRight className="w-4 h-4" />

@@ -6,9 +6,10 @@ import { Logo } from "@/components/brand/Logo";
 import { Button } from "@/components/ui/Button";
 
 const navLinks = [
-  { href: "/", label: "Company" },
+  { href: "/company", label: "Company" },
   { href: "/services", label: "Services" },
   { href: "/products", label: "Products" },
+  { href: "/clients", label: "Clients" },
 ];
 
 export function Navbar() {

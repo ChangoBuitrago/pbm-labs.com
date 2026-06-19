@@ -10,11 +10,13 @@ import { PageShell } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageHeader } from "@/components/ui/PageHeader";
+import { ExpertiseGrid } from "@/components/sections/ClientsSection";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Consulting Services",
   description:
-    "Enterprise technology consulting — custom software development, security architecture, and cloud infrastructure design.",
+    "Custom software development, identity infrastructure, IoT platform engineering, and security architecture for enterprise B2B teams.",
 };
 
 const services = [
@@ -22,33 +24,33 @@ const services = [
     icon: Code,
     title: "Custom Software Development",
     description:
-      "We engineer scalable, resilient software applications tailored to specific enterprise workflows. From API integrations to core business logic, our team delivers production-ready code with a focus on maintainability and security.",
+      "Production-grade applications, APIs, and internal tooling. Our work spans identity SDKs, energy market platforms, mobile applications, and backend services for enterprise clients including Energy Web, Wattwatchers, and The Hashgraph Group.",
     items: [
-      "Full-Stack Web & API Architecture",
-      "Legacy System Modernization",
-      "High-Throughput Data Processing",
+      "Full-stack web & API architecture",
+      "Mobile & edge applications",
+      "SDK and developer tooling",
     ],
   },
   {
     icon: Shield,
     title: "Security & Cryptography Consulting",
     description:
-      "We help organizations implement zero-trust architectures and cryptographic verification layers to protect against advanced social engineering and data tampering threats within their corporate networks.",
+      "Cryptographic verification layers, access control design, and data validation tooling. We implement DKIM-based integrity checks, zero-knowledge processing patterns, and audit-ready engineering for B2B compliance workflows.",
     items: [
-      "Business Logic Vulnerability Audits",
-      "Cryptographic Implementation (PKI/DKIM)",
-      "'Reasonable Care' Compliance Engineering",
+      "Cryptographic implementation (PKI / DKIM)",
+      "Business logic vulnerability audits",
+      "Compliance-oriented validation tooling",
     ],
   },
   {
     icon: Server,
-    title: "Cloud Infrastructure Design",
+    title: "Cloud & Platform Infrastructure",
     description:
-      "Design and deployment of robust cloud environments. We optimize for high availability, disaster recovery, and strict access controls, ensuring your data remains isolated and secure across global regions.",
+      "Backend services, IoT device integration, and cloud deployment for high-availability platforms. Experience includes grid flexibility markets, real-time energy monitoring, and distributed identity infrastructure at scale.",
     items: [
-      "High Availability & Disaster Recovery",
-      "Strict Access Controls",
-      "Multi-Region Deployment",
+      "IoT & device cloud integration",
+      "High-throughput data pipelines",
+      "Multi-region deployment",
     ],
   },
 ];
@@ -59,10 +61,10 @@ export default function ServicesPage() {
       <PageHeader
         eyebrow="Consulting"
         title="Enterprise technology consulting"
-        description="PBM Labs partners with mid-market and enterprise organizations to design, build, and audit high-security digital infrastructure and custom software solutions."
+        description="PBM Labs delivers contract engineering and technical advisory for organizations building identity platforms, IoT systems, and security-sensitive B2B software."
       />
 
-      <div className="grid md:grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-3 gap-5 mb-12">
         {services.map(({ icon: Icon, title, description, items }) => (
           <Card key={title} hover className="flex flex-col h-full">
             <Icon className="w-7 h-7 text-slate-400 mb-5" strokeWidth={1.5} />
@@ -85,7 +87,14 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      <div className="mt-10 corp-panel p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+      <div className="mb-12">
+        <h2 className="text-xs font-semibold tracking-[0.2em] uppercase text-slate-500 mb-6">
+          Related practice areas
+        </h2>
+        <ExpertiseGrid />
+      </div>
+
+      <div className="corp-panel p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         <div className="flex items-start gap-4">
           <Building2
             className="w-8 h-8 text-slate-600 shrink-0 mt-0.5"
@@ -96,7 +105,8 @@ export default function ServicesPage() {
               Discuss your project
             </h2>
             <p className="text-slate-500 text-sm max-w-md leading-relaxed">
-              Schedule a technical consultation with our engineering leads.
+              Remote-first engagements with {siteConfig.name}. Scope a technical
+              consultation with our engineering leads.
             </p>
           </div>
         </div>
