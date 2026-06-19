@@ -1,4 +1,5 @@
 export type ClientEngagement = {
+  id: string;
   name: string;
   industry: string;
   summary: string;
@@ -60,6 +61,7 @@ export const siteConfig = {
   ] satisfies readonly ExpertiseArea[],
   clients: [
     {
+      id: "energy-web",
       name: "Energy Web",
       industry: "Energy & Grid Infrastructure",
       summary:
@@ -71,6 +73,7 @@ export const siteConfig = {
       ],
     },
     {
+      id: "hashgraph-group",
       name: "The Hashgraph Group",
       industry: "Enterprise Identity",
       summary:
@@ -82,6 +85,7 @@ export const siteConfig = {
       ],
     },
     {
+      id: "managination",
       name: "Managination",
       industry: "Enterprise Software",
       summary:
@@ -93,6 +97,7 @@ export const siteConfig = {
       ],
     },
     {
+      id: "wattwatchers",
       name: "Wattwatchers",
       industry: "Energy IoT",
       summary:

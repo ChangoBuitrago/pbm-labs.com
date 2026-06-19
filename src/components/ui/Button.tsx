@@ -8,17 +8,17 @@ type ButtonProps = ComponentProps<typeof Link> & {
 
 const variants = {
   primary:
-    "bg-white text-slate-950 hover:bg-slate-100 border border-white/10 shadow-sm",
+    "bg-gradient-to-r from-cyan-500 to-cyan-400 text-slate-950 hover:from-cyan-400 hover:to-cyan-300 shadow-lg shadow-cyan-500/10 border border-cyan-400/20",
   secondary:
-    "bg-transparent text-slate-200 hover:text-white border border-slate-600 hover:border-slate-500 hover:bg-slate-800/50",
+    "bg-transparent text-slate-300 hover:text-white border border-[var(--color-border)] hover:border-slate-500/60 hover:bg-white/[0.03]",
   ghost:
-    "bg-transparent text-slate-400 hover:text-white border border-transparent hover:bg-slate-800/40",
+    "bg-transparent text-[var(--color-muted)] hover:text-white border border-transparent hover:bg-white/[0.03]",
 };
 
 const sizes = {
   sm: "px-4 py-2 text-sm",
-  md: "px-6 py-2.5 text-sm",
-  lg: "px-8 py-3.5 text-base",
+  md: "px-5 py-2.5 text-sm",
+  lg: "px-7 py-3 text-sm font-semibold",
 };
 
 export function Button({
@@ -29,7 +29,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <Link
-      className={`inline-flex items-center justify-center gap-2 rounded-md font-medium transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
     />
   );
@@ -46,14 +46,14 @@ export function ButtonSubmit({
 }) {
   const submitVariants = {
     primary:
-      "bg-white text-slate-950 hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed",
+      "bg-gradient-to-r from-cyan-500 to-cyan-400 text-slate-950 hover:from-cyan-400 hover:to-cyan-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-cyan-500/10",
     secondary:
-      "bg-slate-800 text-white border border-slate-600 hover:bg-slate-700 disabled:opacity-50",
+      "bg-[var(--color-elevated)] text-white border border-[var(--color-border)] hover:border-slate-500/60 disabled:opacity-50",
   };
 
   return (
     <button
-      className={`w-full inline-flex items-center justify-center rounded-md font-semibold transition-all duration-200 ${submitVariants[variant]} ${sizes[size]} ${className}`}
+      className={`w-full inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 ${submitVariants[variant]} ${sizes[size]} ${className}`}
       {...props}
     />
   );

@@ -4,64 +4,58 @@ import { siteConfig } from "@/lib/site-config";
 
 const companyLinks = [
   { href: "/company", label: "About" },
-  { href: "/services", label: "Consulting Services" },
-  { href: "/products", label: "Software Products" },
+  { href: "/services", label: "Services" },
+  { href: "/products", label: "Products" },
   { href: "/clients", label: "Clients" },
   { href: "/contact#form", label: "Contact" },
 ];
 
 const legalLinks = [
-  { href: "/terms", label: "Terms of Service" },
-  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms" },
+  { href: "/privacy", label: "Privacy" },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-800/60 bg-[#060a10] mt-auto">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+    <footer className="border-t border-[var(--color-border)] mt-auto">
+      <div className="max-w-6xl mx-auto px-6 py-10">
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
           <Link href="/" className="w-fit hover:opacity-90 transition-opacity">
-            <Logo size="md" />
+            <Logo size="sm" />
           </Link>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-10 sm:gap-16 lg:gap-24">
-            <div className="flex flex-col gap-3">
-              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-slate-400">
-                Company
-              </span>
+          <div className="flex flex-wrap gap-x-16 gap-y-6">
+            <div className="flex flex-col gap-2.5">
+              <span className="corp-eyebrow">Company</span>
               {companyLinks.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
-                  className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
+                  className="text-sm text-[var(--color-muted)] hover:text-white transition-colors w-fit"
                 >
                   {label}
                 </Link>
               ))}
             </div>
 
-            <div className="flex flex-col gap-3">
-              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-slate-400">
-                Legal
-              </span>
+            <div className="flex flex-col gap-2.5">
+              <span className="corp-eyebrow">Legal</span>
               {legalLinks.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
-                  className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
+                  className="text-sm text-[var(--color-muted)] hover:text-white transition-colors w-fit"
                 >
                   {label}
                 </Link>
               ))}
             </div>
 
-            <div className="flex flex-col gap-3 col-span-2 sm:col-span-1">
-              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-slate-400">
-                Email
-              </span>
+            <div className="flex flex-col gap-2.5">
+              <span className="corp-eyebrow">Email</span>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="text-sm text-slate-500 hover:text-white transition-colors w-fit"
+                className="text-sm text-[var(--color-muted)] hover:text-white transition-colors w-fit"
               >
                 {siteConfig.email}
               </a>
@@ -69,19 +63,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <p className="text-xs text-slate-600">
+        <div className="mt-8 pt-6 border-t border-[var(--color-border)]">
+          <p className="text-xs text-[var(--color-muted)]/70">
             © 2026 {siteConfig.legalName}. All rights reserved.
           </p>
-          <div className="flex items-center gap-2">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-40" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-            </span>
-            <span className="text-xs text-slate-500 font-mono tracking-wide">
-              All systems operational
-            </span>
-          </div>
         </div>
       </div>
     </footer>

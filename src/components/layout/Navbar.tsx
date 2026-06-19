@@ -16,28 +16,28 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-slate-800/60 bg-[#060a10]/95 backdrop-blur-lg">
-      <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+    <nav className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-xl">
+      <div className="flex items-center justify-between px-6 py-3.5 max-w-6xl mx-auto">
         <Link href="/" className="hover:opacity-90 transition-opacity">
-          <Logo size="md" />
+          <Logo size="sm" />
         </Link>
 
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-0.5">
           {navLinks.map(({ href, label }) => {
             const isActive = pathname === href;
             return (
               <Link
                 key={href}
                 href={href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+                className={`relative px-3.5 py-2 text-[13px] font-medium transition-colors ${
                   isActive
                     ? "text-white"
-                    : "text-slate-400 hover:text-slate-200"
+                    : "text-[var(--color-muted)] hover:text-slate-200"
                 }`}
               >
                 {label}
                 {isActive && (
-                  <span className="absolute bottom-0 left-4 right-4 h-px bg-blue-500/80" />
+                  <span className="absolute bottom-0 left-3.5 right-3.5 h-px corp-accent-line rounded-full" />
                 )}
               </Link>
             );

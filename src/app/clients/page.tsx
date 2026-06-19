@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { PageShell, SectionHeading } from "@/components/layout/PageShell";
 import {
-  ClientsSection,
-  EngagementModel,
-} from "@/components/sections/ClientsSection";
+  CtaBanner,
+  PageShell,
+  SectionHeading,
+} from "@/components/layout/PageShell";
+import { ClientLogoBar } from "@/components/brand/ClientLogo";
+import { ClientsSection, EngagementModel } from "@/components/sections/ClientsSection";
 import { PageHeader } from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
@@ -14,25 +16,31 @@ export const metadata: Metadata = {
 
 export default function ClientsPage() {
   return (
-    <>
-      <PageShell width="wide">
-        <PageHeader
-          eyebrow="Client Engagements"
-          title="Organizations we work with"
-          description="PBM Labs has delivered consulting and custom software development for enterprise teams in energy infrastructure, identity platforms, and IoT. Selected engagements are listed below."
-        />
-        <ClientsSection showLink={false} />
-      </PageShell>
+    <PageShell width="wide">
+      <PageHeader
+        eyebrow="Clients"
+        title="Organizations we work with"
+        description="Selected enterprise engagements across energy infrastructure, identity platforms, and IoT."
+        align="left"
+      />
 
-      <section className="border-t border-slate-800/60 bg-slate-950/30">
-        <div className="max-w-7xl mx-auto px-6 py-16 md:py-20">
-          <SectionHeading
-            eyebrow="Process"
-            title="How engagements are structured"
-          />
-          <EngagementModel />
-        </div>
-      </section>
-    </>
+      <div className="corp-panel px-8 py-10 mb-12">
+        <ClientLogoBar />
+      </div>
+
+      <ClientsSection showLink={false} />
+
+      <div className="mt-14">
+        <SectionHeading eyebrow="Process" title="Engagement model" />
+        <EngagementModel />
+      </div>
+
+      <div className="mt-14">
+        <CtaBanner
+          title="Building something similar?"
+          description="We partner with engineering teams on identity infrastructure, IoT platforms, and security-sensitive B2B software."
+        />
+      </div>
+    </PageShell>
   );
 }

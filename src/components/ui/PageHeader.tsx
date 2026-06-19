@@ -18,26 +18,22 @@ export function PageHeader({
   const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
   const titleClass =
     size === "large"
-      ? "text-4xl md:text-5xl lg:text-6xl leading-[1.12]"
+      ? "text-4xl md:text-[3.25rem] lg:text-[3.75rem] leading-[1.08]"
       : "text-3xl md:text-4xl leading-tight";
 
   return (
     <header
-      className={`mb-12 md:mb-16 ${alignClass} ${align === "left" ? "max-w-4xl" : "max-w-3xl"}`}
+      className={`mb-10 md:mb-14 ${alignClass} ${align === "left" ? "max-w-3xl" : "max-w-2xl"}`}
     >
-      {eyebrow && (
-        <p className="text-xs font-semibold tracking-[0.2em] uppercase text-blue-400/90 mb-4">
-          {eyebrow}
-        </p>
-      )}
+      {eyebrow && <p className="corp-eyebrow mb-4">{eyebrow}</p>}
       <h1
-        className={`${titleClass} font-semibold text-white tracking-tight mb-4 md:mb-5`}
+        className={`${titleClass} font-semibold tracking-tight text-white mb-4`}
       >
         {title}
       </h1>
       {description && (
         <p
-          className={`text-base md:text-lg text-slate-400 leading-relaxed max-w-2xl ${align === "center" ? "mx-auto" : ""}`}
+          className={`text-base md:text-lg text-[var(--color-muted)] leading-relaxed max-w-xl ${align === "center" ? "mx-auto" : ""}`}
         >
           {description}
         </p>
