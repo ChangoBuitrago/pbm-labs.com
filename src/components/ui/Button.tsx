@@ -8,17 +8,17 @@ type ButtonProps = ComponentProps<typeof Link> & {
 
 const variants = {
   primary:
-    "bg-gradient-to-r from-cyan-500 to-cyan-400 text-slate-950 hover:from-cyan-400 hover:to-cyan-300 shadow-lg shadow-cyan-500/10 border border-cyan-400/20",
+    "bg-[var(--color-board-accent)] text-[var(--color-board-bg)] hover:brightness-110 shadow-[0_0_24px_rgba(61,165,244,0.25)]",
   secondary:
-    "bg-transparent text-slate-300 hover:text-white border border-[var(--color-border)] hover:border-slate-500/60 hover:bg-white/[0.03]",
+    "bg-transparent text-[var(--color-board-silver)] border border-[var(--color-board-border)] hover:border-[var(--color-board-silver)]/40 hover:text-[var(--color-board-text)]",
   ghost:
-    "bg-transparent text-[var(--color-muted)] hover:text-white border border-transparent hover:bg-white/[0.03]",
+    "bg-transparent text-[var(--color-board-muted)] hover:text-[var(--color-board-text)]",
 };
 
 const sizes = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-5 py-2.5 text-sm",
-  lg: "px-7 py-3 text-sm font-semibold",
+  sm: "px-4 py-2 text-sm rounded-lg",
+  md: "px-5 py-2.5 text-sm rounded-lg",
+  lg: "px-7 py-3.5 text-sm font-semibold rounded-lg",
 };
 
 export function Button({
@@ -29,7 +29,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <Link
-      className={`inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 font-medium transition-all duration-200 ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
     />
   );
@@ -46,14 +46,14 @@ export function ButtonSubmit({
 }) {
   const submitVariants = {
     primary:
-      "bg-gradient-to-r from-cyan-500 to-cyan-400 text-slate-950 hover:from-cyan-400 hover:to-cyan-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-cyan-500/10",
+      "bg-[var(--color-board-accent)] text-[var(--color-board-bg)] hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed",
     secondary:
-      "bg-[var(--color-elevated)] text-white border border-[var(--color-border)] hover:border-slate-500/60 disabled:opacity-50",
+      "bg-[var(--color-board-elevated)] text-[var(--color-board-text)] border border-[var(--color-board-border)] hover:border-[var(--color-board-silver)]/30 disabled:opacity-50",
   };
 
   return (
     <button
-      className={`w-full inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-200 ${submitVariants[variant]} ${sizes[size]} ${className}`}
+      className={`w-full inline-flex items-center justify-center font-semibold transition-all duration-200 rounded-lg ${submitVariants[variant]} ${sizes[size]} ${className}`}
       {...props}
     />
   );

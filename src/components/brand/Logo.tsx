@@ -7,8 +7,8 @@ type LogoProps = {
 };
 
 const sizes = {
-  sm: { mark: 26, text: "text-[15px]" },
-  md: { mark: 30, text: "text-lg" },
+  sm: { mark: 28, text: "text-[15px]" },
+  md: { mark: 32, text: "text-lg" },
   lg: { mark: 36, text: "text-xl" },
 };
 
@@ -23,7 +23,9 @@ export function Logo({
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
       <LogoMark size={s.mark} />
       {showWordmark && (
-        <span className={`${s.text} font-semibold tracking-tight text-white`}>
+        <span
+          className={`${s.text} font-semibold tracking-tight text-[var(--color-board-text)]`}
+        >
           {siteConfig.name}
         </span>
       )}
@@ -54,13 +56,13 @@ export function LogoMark({
         width="38"
         height="38"
         rx="9"
-        className="stroke-[var(--color-border)]"
+        stroke="var(--color-board-border)"
         strokeWidth="1.5"
       />
-      <rect x="9" y="22" width="5" height="10" rx="1" className="fill-slate-500" />
-      <rect x="17.5" y="16" width="5" height="16" rx="1" className="fill-slate-300" />
-      <rect x="26" y="10" width="5" height="22" rx="1" className="fill-cyan-400" />
-      <circle cx="32" cy="8" r="2" className="fill-cyan-300" />
+      <rect x="9" y="22" width="5" height="10" rx="1" fill="#64748b" />
+      <rect x="17.5" y="16" width="5" height="16" rx="1" fill="#94a3b8" />
+      <rect x="26" y="10" width="5" height="22" rx="1" fill="var(--color-board-accent)" />
+      <circle cx="32" cy="8" r="2" fill="#7ec8f7" />
     </svg>
   );
 }

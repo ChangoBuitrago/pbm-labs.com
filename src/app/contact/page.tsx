@@ -91,20 +91,19 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Get in touch"
-        description="Consulting inquiries and product access requests."
-        align="left"
+        description="Reach our consulting team or request access to enterprise software."
       />
 
-      <div className="grid lg:grid-cols-[240px_1fr] gap-6 lg:gap-10 items-start">
-        <aside className="corp-panel p-5 space-y-5 lg:sticky lg:top-20">
+      <div className="grid lg:grid-cols-[280px_1fr] gap-8 lg:gap-12 items-start">
+        <aside className="corp-panel p-6 space-y-6 lg:sticky lg:top-24">
           <div>
             <SectionLabel>Headquarters</SectionLabel>
-            <div className="flex items-start gap-2.5 mt-1">
+            <div className="flex items-start gap-3 mt-2">
               <Building2
-                className="w-3.5 h-3.5 text-[var(--color-muted)] mt-0.5 shrink-0"
+                className="w-4 h-4 text-[var(--color-board-muted)] mt-0.5 shrink-0"
                 strokeWidth={1.5}
               />
-              <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+              <p className="text-[var(--color-board-muted)] text-sm leading-relaxed">
                 {line1}
                 <br />
                 {line2}
@@ -116,16 +115,16 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="border-t border-[var(--color-border)] pt-5">
+          <div className="border-t border-[var(--color-board-border)] pt-6">
             <SectionLabel>Email</SectionLabel>
-            <div className="flex items-center gap-2.5 mt-1">
+            <div className="flex items-center gap-3 mt-2">
               <Mail
-                className="w-3.5 h-3.5 text-[var(--color-muted)] shrink-0"
+                className="w-4 h-4 text-[var(--color-board-muted)] shrink-0"
                 strokeWidth={1.5}
               />
               <a
                 href={`mailto:${email}`}
-                className="text-slate-300 hover:text-white transition-colors text-sm break-all"
+                className="text-[var(--color-board-silver)] hover:text-[var(--color-board-text)] transition-colors text-sm break-all"
               >
                 {email}
               </a>
@@ -133,27 +132,30 @@ export default function ContactPage() {
           </div>
         </aside>
 
-        <div id="form" className="corp-panel p-6 md:p-7 scroll-mt-20 min-w-0">
+        <div id="form" className="corp-panel p-6 md:p-8 scroll-mt-24 min-w-0">
           {status === "success" ? (
-            <div className="text-center py-10 md:py-12">
+            <div className="text-center py-12 md:py-16">
               <CheckCircle2
-                className="w-9 h-9 text-emerald-400 mx-auto mb-3"
+                className="w-10 h-10 text-emerald-500 mx-auto mb-4"
                 strokeWidth={1.5}
               />
-              <p className="text-white font-semibold mb-1">Message sent</p>
-              <p className="text-[var(--color-muted)] text-sm mb-5 max-w-xs mx-auto">
-                We&apos;ll respond at the email you provided.
+              <p className="text-white font-semibold text-lg mb-2">
+                Message sent
+              </p>
+              <p className="text-[var(--color-board-muted)] text-sm mb-6 max-w-xs mx-auto">
+                Thank you for reaching out. We&apos;ll respond at the email you
+                provided.
               </p>
               <button
                 type="button"
                 onClick={() => setStatus("idle")}
-                className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors"
+                className="text-[var(--color-board-accent)] hover:brightness-110 text-sm font-medium transition-colors"
               >
                 Send another message
               </button>
             </div>
           ) : (
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <input
                 type="text"
                 name="_hp"
@@ -168,7 +170,7 @@ export default function ContactPage() {
                 <div className="space-y-1.5">
                   <label
                     htmlFor="firstName"
-                    className="text-[11px] font-medium text-[var(--color-muted)] uppercase tracking-wide"
+                    className="text-xs font-medium text-[var(--color-board-muted)] uppercase tracking-wide"
                   >
                     First Name
                   </label>
@@ -187,7 +189,7 @@ export default function ContactPage() {
                 <div className="space-y-1.5">
                   <label
                     htmlFor="lastName"
-                    className="text-[11px] font-medium text-[var(--color-muted)] uppercase tracking-wide"
+                    className="text-xs font-medium text-[var(--color-board-muted)] uppercase tracking-wide"
                   >
                     Last Name
                   </label>
@@ -208,7 +210,7 @@ export default function ContactPage() {
               <div className="space-y-1.5">
                 <label
                   htmlFor="email"
-                  className="text-[11px] font-medium text-[var(--color-muted)] uppercase tracking-wide"
+                  className="text-xs font-medium text-[var(--color-board-muted)] uppercase tracking-wide"
                 >
                   Corporate Email
                 </label>
@@ -228,7 +230,7 @@ export default function ContactPage() {
               <div className="space-y-1.5">
                 <label
                   htmlFor="inquiryType"
-                  className="text-[11px] font-medium text-[var(--color-muted)] uppercase tracking-wide"
+                  className="text-xs font-medium text-[var(--color-board-muted)] uppercase tracking-wide"
                 >
                   Inquiry Type
                 </label>
@@ -252,20 +254,20 @@ export default function ContactPage() {
               <div className="space-y-1.5">
                 <label
                   htmlFor="message"
-                  className="text-[11px] font-medium text-[var(--color-muted)] uppercase tracking-wide"
+                  className="text-xs font-medium text-[var(--color-board-muted)] uppercase tracking-wide"
                 >
                   Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={4}
+                  rows={5}
                   required
                   value={form.message}
                   onChange={(e) => updateField("message", e.target.value)}
                   disabled={status === "loading"}
                   className="corp-input resize-none"
-                  placeholder="How can we help?"
+                  placeholder="How can we help your engineering or finance team?"
                 />
               </div>
 

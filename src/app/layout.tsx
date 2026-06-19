@@ -56,7 +56,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col text-slate-50 selection:bg-cyan-500/20">
+      <body className="min-h-full flex flex-col selection:bg-[var(--color-board-accent)]/25">
         <JsonLd />
         <Navbar />
         <div className="flex-grow">{children}</div>

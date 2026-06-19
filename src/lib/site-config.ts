@@ -1,10 +1,9 @@
 export type ClientEngagement = {
   id: string;
-  name: string;
+  project: string;
   industry: string;
   summary: string;
   services: readonly string[];
-  logoExt: "svg" | "png";
 };
 
 export type ExpertiseArea = {
@@ -60,58 +59,54 @@ export const siteConfig = {
         "DKIM and metadata verification, zero-knowledge processing patterns, business-logic audits, and compliance-oriented engineering for B2B workflows.",
     },
   ] satisfies readonly ExpertiseArea[],
-  clients: [
+  engagements: [
     {
-      id: "energy-web",
-      name: "Energy Web",
+      id: "grid-flexibility-platform",
+      project: "Grid Flexibility Platform",
       industry: "Energy & Grid Infrastructure",
       summary:
-        "Backend and IoT platform engineering for open-source grid flexibility software — including EW Flex asset registration, market integration, and operator-facing services deployed with utilities in Europe and Australia.",
+        "Backend and IoT platform engineering for grid flexibility software — asset registration, market integration, and operator-facing services for utilities in Europe and Australia.",
       services: [
         "Backend development",
         "IoT integration",
         "Market platform APIs",
       ],
-      logoExt: "svg",
     },
     {
-      id: "hashgraph-group",
-      name: "The Hashgraph Group",
+      id: "enterprise-identity-sdk",
+      project: "Enterprise Identity SDK Suite",
       industry: "Enterprise Identity",
       summary:
-        "Lead product engineering for enterprise identity infrastructure — protocol standards, developer SDK suites (DID, Verifiable Credentials), and production tooling for ecosystem partners.",
+        "Lead product engineering for decentralized identity infrastructure — protocol standards, developer SDK suites, and production tooling for ecosystem partners.",
       services: [
         "Product engineering",
         "SDK development",
         "Protocol architecture",
       ],
-      logoExt: "svg",
     },
     {
-      id: "managination",
-      name: "Managination",
+      id: "credential-verification-network",
+      project: "Credential Verification Network",
       industry: "Enterprise Software",
       summary:
-        "Senior full-stack engineering for identity verification networks, enterprise access systems, and cross-platform integration layers delivered as contract engagements.",
+        "Full-stack engineering for identity verification networks, enterprise access systems, and cross-platform integration layers delivered as contract engagements.",
       services: [
         "Full-stack development",
         "Credential verification systems",
         "Platform integration",
       ],
-      logoExt: "png",
     },
     {
-      id: "wattwatchers",
-      name: "Wattwatchers",
+      id: "energy-monitoring-platform",
+      project: "Real-Time Energy Monitoring Platform",
       industry: "Energy IoT",
       summary:
-        "Frontend and backend development for real-time energy monitoring — the mydata.energy mobile platform, cloud APIs, and device management tooling for smart grid deployments.",
+        "Frontend and backend development for real-time energy monitoring — mobile applications, cloud APIs, and device management tooling for smart grid deployments.",
       services: [
         "Mobile & web frontend",
         "Python backend APIs",
         "Cloud infrastructure",
       ],
-      logoExt: "png",
     },
   ] satisfies readonly ClientEngagement[],
   engagementModel: [

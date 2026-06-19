@@ -1,46 +1,47 @@
 import type { Metadata } from "next";
 import {
-  CtaBanner,
+  CtaBand,
+  PageSection,
   PageShell,
   SectionHeading,
 } from "@/components/layout/PageShell";
-import { ClientLogoBar } from "@/components/brand/ClientLogo";
-import { ClientsSection, EngagementModel } from "@/components/sections/ClientsSection";
+import {
+  EngagementsSection,
+  EngagementModel,
+} from "@/components/sections/ClientsSection";
 import { PageHeader } from "@/components/ui/PageHeader";
 
 export const metadata: Metadata = {
-  title: "Clients",
+  title: "Engagements",
   description:
-    "Enterprise software and consulting engagements with Energy Web, The Hashgraph Group, Managination, and Wattwatchers.",
+    "Anonymized enterprise consulting and software development engagements across energy infrastructure, identity platforms, and IoT.",
 };
 
 export default function ClientsPage() {
   return (
-    <PageShell width="wide">
-      <PageHeader
-        eyebrow="Clients"
-        title="Organizations we work with"
-        description="Selected enterprise engagements across energy infrastructure, identity platforms, and IoT."
-        align="left"
-      />
+    <>
+      <PageShell width="wide">
+        <PageHeader
+          eyebrow="Case Studies"
+          title="Representative project work"
+          description="Anonymized summaries of enterprise consulting and custom software development. Client identities are not disclosed."
+          align="left"
+          size="large"
+        />
+        <EngagementsSection showLink={false} numbered />
+      </PageShell>
 
-      <div className="corp-panel px-8 py-10 mb-12">
-        <ClientLogoBar />
-      </div>
-
-      <ClientsSection showLink={false} />
-
-      <div className="mt-14">
-        <SectionHeading eyebrow="Process" title="Engagement model" />
+      <PageSection bordered muted>
+        <SectionHeading eyebrow="Methodology" title="How engagements run" />
         <EngagementModel />
-      </div>
+      </PageSection>
 
-      <div className="mt-14">
-        <CtaBanner
+      <PageSection>
+        <CtaBand
           title="Building something similar?"
           description="We partner with engineering teams on identity infrastructure, IoT platforms, and security-sensitive B2B software."
         />
-      </div>
-    </PageShell>
+      </PageSection>
+    </>
   );
 }

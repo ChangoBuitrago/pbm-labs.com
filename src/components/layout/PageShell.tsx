@@ -24,14 +24,9 @@ export function PageShell({
 }: PageShellProps) {
   return (
     <div className={`animate-in relative ${className}`}>
-      {hero && (
-        <>
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[min(900px,120%)] h-[420px] bg-cyan-500/[0.04] blur-[120px] rounded-full pointer-events-none -z-10" />
-          <div className="absolute top-20 right-0 w-[400px] h-[300px] bg-indigo-500/[0.03] blur-[100px] rounded-full pointer-events-none -z-10" />
-        </>
-      )}
+      {hero && <div className="hero-glow" aria-hidden />}
       <div
-        className={`relative ${widthClass[width]} mx-auto px-6 py-14 md:py-20`}
+        className={`relative ${widthClass[width]} mx-auto px-6 ${hero ? "py-24 md:py-32 lg:py-36" : "py-16 md:py-24"}`}
       >
         {children}
       </div>
@@ -52,9 +47,9 @@ export function PageSection({
 }) {
   return (
     <section
-      className={`${bordered ? "border-t border-[var(--color-border)]" : ""} ${muted ? "bg-[var(--color-surface)]/40" : ""} ${className}`}
+      className={`${bordered ? "border-t border-[var(--color-board-border)]" : ""} ${muted ? "bg-[var(--color-board-surface)]/40" : ""} ${className}`}
     >
-      <div className="max-w-6xl mx-auto px-6 py-14 md:py-16">{children}</div>
+      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">{children}</div>
     </section>
   );
 }
@@ -71,14 +66,14 @@ export function SectionHeading({
   action?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8 md:mb-10">
-      <div className="max-w-lg">
-        {eyebrow && <p className="corp-eyebrow mb-2">{eyebrow}</p>}
-        <h2 className="text-xl md:text-2xl font-semibold text-white tracking-tight">
+    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-14">
+      <div className="max-w-xl">
+        {eyebrow && <p className="corp-eyebrow mb-3">{eyebrow}</p>}
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-[var(--color-board-text)] tracking-[-0.02em]">
           {title}
         </h2>
         {description && (
-          <p className="mt-2 text-sm text-[var(--color-muted)] leading-relaxed">
+          <p className="mt-3 text-[var(--color-board-muted)] leading-relaxed">
             {description}
           </p>
         )}
@@ -97,12 +92,12 @@ export function SectionLink({
 }) {
   return (
     <Link href={href} className="section-link">
-      {children} <ArrowRight className="w-3.5 h-3.5" />
+      {children} <ArrowRight className="w-4 h-4" />
     </Link>
   );
 }
 
-export function CtaBanner({
+export function CtaBand({
   title,
   description,
   buttonLabel = "Contact us",
@@ -114,16 +109,41 @@ export function CtaBanner({
   buttonHref?: string;
 }) {
   return (
-    <div className="corp-panel p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-      <div className="max-w-md">
-        <h2 className="text-lg font-semibold text-white mb-2">{title}</h2>
-        <p className="text-sm text-[var(--color-muted)] leading-relaxed">
-          {description}
-        </p>
+    <div className="relative overflow-hidden rounded-2xl border border-[var(--color-board-border)] bg-[var(--color-board-surface)] p-10 md:p-14">
+      <div
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(61,165,244,0.08),transparent_60%)]"
+        aria-hidden
+      />
+      <div className="relative flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+        <div className="max-w-lg">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-board-text)] tracking-[-0.02em] mb-3">
+            {title}
+          </h2>
+          <p className="text-[var(--color-board-muted)] leading-relaxed">
+            {description}
+          </p>
+        </div>
+        <Button href={buttonHref} variant="primary" size="lg" className="shrink-0">
+          {buttonLabel}
+        </Button>
       </div>
-      <Button href={buttonHref} variant="primary" size="md" className="shrink-0">
-        {buttonLabel}
-      </Button>
+    </div>
+  );
+}
+
+export function StatGrid({
+  stats,
+}: {
+  stats: { value: string; label: string }[];
+}) {
+  return (
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-[var(--color-board-border)] pt-10 mt-10">
+      {stats.map(({ value, label }) => (
+        <div key={label}>
+          <p className="stat-value">{value}</p>
+          <p className="stat-label">{label}</p>
+        </div>
+      ))}
     </div>
   );
 }

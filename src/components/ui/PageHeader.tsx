@@ -5,7 +5,7 @@ type PageHeaderProps = {
   title: ReactNode;
   description?: string;
   align?: "center" | "left";
-  size?: "default" | "large";
+  size?: "default" | "large" | "hero";
 };
 
 export function PageHeader({
@@ -17,23 +17,25 @@ export function PageHeader({
 }: PageHeaderProps) {
   const alignClass = align === "center" ? "text-center mx-auto" : "text-left";
   const titleClass =
-    size === "large"
-      ? "text-4xl md:text-[3.25rem] lg:text-[3.75rem] leading-[1.08]"
-      : "text-3xl md:text-4xl leading-tight";
+    size === "hero"
+      ? "text-[2.75rem] md:text-6xl lg:text-[4.25rem] leading-[1.05] tracking-[-0.03em]"
+      : size === "large"
+        ? "text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-[-0.02em]"
+        : "text-3xl md:text-4xl leading-tight tracking-[-0.02em]";
 
   return (
     <header
-      className={`mb-10 md:mb-14 ${alignClass} ${align === "left" ? "max-w-3xl" : "max-w-2xl"}`}
+      className={`mb-10 md:mb-14 ${alignClass} ${align === "left" ? "max-w-4xl" : "max-w-3xl"}`}
     >
-      {eyebrow && <p className="corp-eyebrow mb-4">{eyebrow}</p>}
+      {eyebrow && <p className="corp-eyebrow mb-5">{eyebrow}</p>}
       <h1
-        className={`${titleClass} font-semibold tracking-tight text-white mb-4`}
+        className={`${titleClass} font-semibold text-[var(--color-board-text)] mb-5`}
       >
         {title}
       </h1>
       {description && (
         <p
-          className={`text-base md:text-lg text-[var(--color-muted)] leading-relaxed max-w-xl ${align === "center" ? "mx-auto" : ""}`}
+          className={`text-lg md:text-xl text-[var(--color-board-silver)] leading-relaxed max-w-2xl font-light ${align === "center" ? "mx-auto" : ""}`}
         >
           {description}
         </p>

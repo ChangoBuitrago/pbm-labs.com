@@ -18,19 +18,20 @@ export default function Error({
 
   return (
     <PageShell width="default">
-      <div className="text-center py-10">
+      <div className="text-center py-12">
         <p className="corp-eyebrow mb-4">Error</p>
-        <h1 className="text-2xl font-semibold text-white mb-2">
+        <h1 className="text-3xl font-semibold text-[var(--color-board-text)] mb-3">
           Something went wrong
         </h1>
-        <p className="text-[var(--color-muted)] text-sm mb-6 max-w-sm mx-auto">
-          An unexpected error occurred. You can try again or return home.
+        <p className="text-[var(--color-board-muted)] text-sm mb-8 max-w-md mx-auto">
+          An unexpected error occurred. You can try again or return to the home
+          page.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             type="button"
             onClick={reset}
-            className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-lg bg-gradient-to-r from-cyan-500 to-cyan-400 text-slate-950 hover:from-cyan-400 hover:to-cyan-300 transition-all"
+            className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium rounded-lg bg-[var(--color-board-accent)] text-[var(--color-board-bg)] hover:brightness-110 transition-all"
           >
             Try again
           </button>
@@ -38,9 +39,12 @@ export default function Error({
             Back to home
           </Button>
         </div>
-        <p className="text-xs text-[var(--color-muted)]/70 mt-6">
+        <p className="text-xs text-[var(--color-board-muted)] mt-8">
           Need help?{" "}
-          <Link href="/contact#form" className="text-cyan-400 hover:text-cyan-300">
+          <Link
+            href="/contact#form"
+            className="text-[var(--color-board-accent)] hover:brightness-110"
+          >
             Contact support
           </Link>
         </p>

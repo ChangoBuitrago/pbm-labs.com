@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Database, Fingerprint } from "lucide-react";
-import { CtaBanner, PageShell } from "@/components/layout/PageShell";
+import { CtaBand, PageShell } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/Button";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { siteConfig } from "@/lib/site-config";
@@ -50,20 +50,24 @@ export default function ProductsPage() {
         title={siteConfig.productName}
         description="B2B infrastructure for CFO and risk teams to automate reasonable care in accounts payable workflows."
         align="left"
+        size="large"
       />
 
-      <div className="grid lg:grid-cols-2 gap-10 items-start">
-        <div className="space-y-4">
+      <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="space-y-6">
           {features.map(({ icon: Icon, title, description }) => (
-            <div key={title} className="corp-panel p-5 flex gap-4">
-              <div className="w-9 h-9 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center shrink-0">
-                <Icon className="w-4 h-4 text-cyan-400" strokeWidth={1.5} />
+            <div key={title} className="corp-panel p-6 flex gap-4">
+              <div className="w-10 h-10 rounded-lg bg-[var(--color-board-accent)]/10 border border-[var(--color-board-accent)]/20 flex items-center justify-center shrink-0">
+                <Icon
+                  className="w-5 h-5 text-[var(--color-board-accent)]"
+                  strokeWidth={1.5}
+                />
               </div>
               <div>
-                <h2 className="text-white font-semibold text-sm mb-1">
+                <h2 className="text-[var(--color-board-text)] font-semibold mb-1">
                   {title}
                 </h2>
-                <p className="text-[var(--color-muted)] text-sm leading-relaxed">
+                <p className="text-[var(--color-board-muted)] text-sm leading-relaxed">
                   {description}
                 </p>
               </div>
@@ -81,24 +85,24 @@ export default function ProductsPage() {
         </div>
 
         <div className="lg:sticky lg:top-20">
-          <div className="corp-panel p-5">
-            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-[var(--color-border)]">
+          <div className="corp-panel p-6 font-mono">
+            <div className="flex items-center gap-2 mb-4 pb-4 border-b border-[var(--color-board-border)]">
               <div className="w-2 h-2 rounded-full bg-red-400/70" />
               <div className="w-2 h-2 rounded-full bg-amber-400/70" />
               <div className="w-2 h-2 rounded-full bg-emerald-400/70" />
-              <span className="text-[11px] font-mono text-[var(--color-muted)] ml-1">
+              <span className="text-xs text-[var(--color-board-muted)] ml-1">
                 POST /api/v1/verify/eml
               </span>
             </div>
-            <pre className="text-[11px] font-mono text-[var(--color-muted)] overflow-x-auto leading-relaxed">
+            <pre className="text-xs text-[var(--color-board-muted)] overflow-x-auto leading-relaxed">
               <code>{sampleResponse}</code>
             </pre>
           </div>
         </div>
       </div>
 
-      <div className="mt-14">
-        <CtaBanner
+      <div className="mt-16">
+        <CtaBand
           title="Evaluate the API for your team"
           description="Request access or schedule a technical walkthrough with our engineering leads."
           buttonLabel="Request access"

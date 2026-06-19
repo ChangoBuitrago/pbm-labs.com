@@ -1,41 +1,28 @@
-import { ArrowRight, Code, Cpu, Shield } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ChevronRight, Code, Cpu, Shield } from "lucide-react";
 import {
-  CtaBanner,
+  CtaBand,
   PageSection,
   PageShell,
   SectionHeading,
   SectionLink,
+  StatGrid,
 } from "@/components/layout/PageShell";
-import { ClientLogoBar } from "@/components/brand/ClientLogo";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { PageHeader } from "@/components/ui/PageHeader";
-import { ExpertiseGrid } from "@/components/sections/ClientsSection";
+import {
+  EngagementModel,
+  EngagementsSection,
+  ExpertiseGrid,
+} from "@/components/sections/ClientsSection";
 import { siteConfig } from "@/lib/site-config";
 
-const offerings = [
-  {
-    icon: Code,
-    title: "Custom Development",
-    description:
-      "APIs, SDKs, and full-stack platforms for identity, IoT, and enterprise workflows.",
-    href: "/services",
-  },
-  {
-    icon: Shield,
-    title: "Security Architecture",
-    description:
-      "Cryptographic verification, access control, and compliance-oriented validation.",
-    href: "/services",
-  },
-  {
-    icon: Cpu,
-    title: siteConfig.productName,
-    description:
-      "Automated email metadata verification for accounts payable teams.",
-    href: "/products",
-    accent: true,
-  },
+const heroStats = [
+  { value: "4", label: "Industry verticals" },
+  { value: "100%", label: "Remote delivery" },
+  { value: "B2B", label: "Enterprise only" },
+  { value: "3", label: "Engagement phases" },
 ];
 
 export default function HomePage() {
@@ -46,72 +33,119 @@ export default function HomePage() {
           eyebrow="Enterprise Technology Consulting"
           title={
             <>
-              Infrastructure engineering{" "}
-              <span className="text-[var(--color-muted)]">for teams that ship.</span>
+              Engineering infrastructure{" "}
+              <span className="text-[var(--color-board-silver)]">
+                for regulated B2B teams.
+              </span>
             </>
           }
           description={siteConfig.description}
           align="left"
-          size="large"
+          size="hero"
         />
-        <div className="flex flex-col sm:flex-row gap-3 -mt-2 mb-14">
-          <Button href="/services" variant="primary" size="lg">
-            Our Services <ArrowRight className="w-4 h-4" />
+        <div className="flex flex-col sm:flex-row gap-3 -mt-2">
+          <Button href="/contact#form" variant="primary" size="lg">
+            Start a consultation <ArrowRight className="w-4 h-4" />
           </Button>
-          <Button href="/contact#form" variant="secondary" size="lg">
-            Contact
+          <Button href="/services" variant="secondary" size="lg">
+            View services
           </Button>
         </div>
-
-        <div className="corp-panel px-8 py-10">
-          <p className="corp-eyebrow mb-6 text-center">Selected clients</p>
-          <ClientLogoBar />
-        </div>
+        <StatGrid stats={heroStats} />
       </PageShell>
 
       <PageSection bordered>
         <SectionHeading
-          eyebrow="Capabilities"
-          title="What we deliver"
-          action={<SectionLink href="/services">All services</SectionLink>}
+          eyebrow="Case Studies"
+          title="Representative engagements"
+          description="Anonymized project summaries across energy, identity, and enterprise software. No client identities disclosed."
+          action={<SectionLink href="/clients">All engagements</SectionLink>}
         />
-        <div className="grid sm:grid-cols-3 gap-4">
-          {offerings.map(({ icon: Icon, title, description, href, accent }) => (
-            <a key={title} href={href} className="group block h-full">
-              <Card
-                hover
-                className={`flex flex-col h-full ${accent ? "border-cyan-900/30 group-hover:border-cyan-700/40" : ""}`}
-              >
-                <Icon
-                  className={`w-5 h-5 mb-4 ${accent ? "text-cyan-400" : "text-[var(--color-muted)]"}`}
-                  strokeWidth={1.5}
-                />
-                <h3 className="text-sm font-semibold text-white mb-1.5">
-                  {title}
-                </h3>
-                <p className="text-[var(--color-muted)] text-sm leading-relaxed flex-grow">
-                  {description}
-                </p>
-              </Card>
-            </a>
-          ))}
-        </div>
+        <EngagementsSection showLink={false} limit={4} numbered />
       </PageSection>
 
       <PageSection bordered muted>
         <SectionHeading
-          eyebrow="Practice Areas"
-          title="Where we focus"
+          eyebrow="Methodology"
+          title="How we deliver"
+          description="A structured engagement model designed for enterprise stakeholders who need measurable outcomes."
+        />
+        <EngagementModel />
+      </PageSection>
+
+      <PageSection bordered>
+        <SectionHeading
+          eyebrow="Expertise"
+          title="Practice areas"
           action={<SectionLink href="/company">About us</SectionLink>}
         />
         <ExpertiseGrid />
       </PageSection>
 
-      <PageSection bordered>
-        <CtaBanner
-          title="Ready to scope an engagement?"
-          description="Remote-first consulting with measurable engineering outcomes. Tell us about your platform, timeline, and team."
-          buttonLabel="Start a conversation"
+      <PageSection bordered muted>
+        <SectionHeading
+          eyebrow="Offerings"
+          title="Services and products"
+          action={<SectionLink href="/services">All services</SectionLink>}
+        />
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <Card hover className="flex flex-col h-full group">
+            <Code
+              className="w-6 h-6 text-[var(--color-board-accent)] mb-5"
+              strokeWidth={1.5}
+            />
+            <h3 className="text-lg font-semibold text-[var(--color-board-text)] mb-2">
+              Custom Development
+            </h3>
+            <p className="text-[var(--color-board-muted)] text-sm leading-relaxed flex-grow">
+              APIs, SDKs, and full-stack platforms for identity, IoT, and
+              enterprise workflows.
+            </p>
+          </Card>
+
+          <Card hover className="flex flex-col h-full">
+            <Shield
+              className="w-6 h-6 text-[var(--color-board-accent)] mb-5"
+              strokeWidth={1.5}
+            />
+            <h3 className="text-lg font-semibold text-[var(--color-board-text)] mb-2">
+              Security Architecture
+            </h3>
+            <p className="text-[var(--color-board-muted)] text-sm leading-relaxed flex-grow">
+              Cryptographic verification, access control, and compliance-oriented
+              validation engineering.
+            </p>
+          </Card>
+
+          <Link href="/products" className="group sm:col-span-2 lg:col-span-1">
+            <Card
+              hover
+              className="flex flex-col h-full border-[var(--color-board-accent)]/20 group-hover:border-[var(--color-board-accent)]/40"
+            >
+              <Cpu
+                className="w-6 h-6 text-[var(--color-board-accent)] mb-5"
+                strokeWidth={1.5}
+              />
+              <h3 className="text-lg font-semibold text-[var(--color-board-text)] mb-2">
+                {siteConfig.productName}
+              </h3>
+              <p className="text-[var(--color-board-muted)] text-sm leading-relaxed flex-grow mb-4">
+                Automated email metadata verification for accounts payable
+                workflows.
+              </p>
+              <span className="section-link text-sm">
+                Learn more <ChevronRight className="w-4 h-4" />
+              </span>
+            </Card>
+          </Link>
+        </div>
+      </PageSection>
+
+      <PageSection>
+        <CtaBand
+          title="Scope your next engagement"
+          description="Remote-first consulting with milestone-driven delivery. Tell us about your platform, timeline, and engineering constraints."
+          buttonLabel="Contact engineering leads"
         />
       </PageSection>
     </>

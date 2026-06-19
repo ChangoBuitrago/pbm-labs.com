@@ -28,22 +28,22 @@ export default function PrivacyPage() {
             engagements and operate our infrastructure.
           </p>
           <div className="grid sm:grid-cols-2 gap-4 pt-2">
-            <div className="rounded-md border border-slate-800/60 bg-slate-950/40 p-4">
-              <strong className="text-slate-200 block mb-2 flex items-center gap-2 text-sm">
-                <Lock className="w-4 h-4 text-blue-500" strokeWidth={1.5} />
+            <div className="rounded-md border border-[var(--color-board-border)] bg-[var(--color-board-bg)]/60 p-4">
+              <strong className="text-[var(--color-board-text)] block mb-2 flex items-center gap-2 text-sm">
+                <Lock className="w-4 h-4 text-[var(--color-board-accent)]" strokeWidth={1.5} />
                 Client Data
               </strong>
-              <p className="text-slate-500 text-sm">
+              <p className="text-[var(--color-board-muted)] text-sm">
                 Corporate email addresses, business names, and billing details
                 required for consulting contracts and invoicing.
               </p>
             </div>
-            <div className="rounded-md border border-slate-800/60 bg-slate-950/40 p-4">
-              <strong className="text-slate-200 block mb-2 flex items-center gap-2 text-sm">
-                <Server className="w-4 h-4 text-blue-500" strokeWidth={1.5} />
+            <div className="rounded-md border border-[var(--color-board-border)] bg-[var(--color-board-bg)]/60 p-4">
+              <strong className="text-[var(--color-board-text)] block mb-2 flex items-center gap-2 text-sm">
+                <Server className="w-4 h-4 text-[var(--color-board-accent)]" strokeWidth={1.5} />
                 Infrastructure Data
               </strong>
-              <p className="text-slate-500 text-sm">
+              <p className="text-[var(--color-board-muted)] text-sm">
                 When utilizing our validation APIs, we process payloads
                 programmatically to extract metadata (DKIM, domains, hashes)
                 without storing plaintext business contents.
@@ -64,16 +64,16 @@ export default function PrivacyPage() {
         <ProseSection title="3. Contact">
           <div className="text-center py-2">
             <Mail
-              className="w-6 h-6 text-slate-500 mx-auto mb-3"
+              className="w-6 h-6 text-[var(--color-board-muted)] mx-auto mb-3"
               strokeWidth={1.5}
             />
-            <p className="text-slate-500 mb-3 text-sm">
+            <p className="text-[var(--color-board-muted)] mb-3 text-sm">
               For inquiries regarding privacy or data handling during consulting
               engagements, please contact us.
             </p>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors"
+              className="text-[var(--color-board-accent)] hover:brightness-110 font-medium text-sm transition-colors"
             >
               {siteConfig.email}
             </a>
