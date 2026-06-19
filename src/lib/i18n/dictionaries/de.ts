@@ -12,8 +12,6 @@ export const de: Dictionary = {
     contact: "Kontakt",
     openMenu: "Menü öffnen",
     closeMenu: "Menü schließen",
-    themeLight: "Zum hellen Modus wechseln",
-    themeDark: "Zum dunklen Modus wechseln",
     language: "Sprache",
   },
   footer: {
@@ -163,7 +161,7 @@ export const de: Dictionary = {
     sections: {
       website: {
         title: "1. Website-Daten",
-        body: "Diese Website verwendet keine Analyse-Tools, Tracking-Pixel oder Werbung Dritter. Wesentliche Einstellungen (Theme, Sprache, Cookie-Einwilligung) werden nur im lokalen Speicher Ihres Browsers gespeichert.",
+        body: "Diese Website verwendet keine Analyse-Tools, Tracking-Pixel oder Werbung Dritter. Wesentliche Einstellungen (Sprache und Cookie-Einwilligung) werden nur im lokalen Speicher Ihres Browsers gespeichert.",
       },
       contact: {
         title: "2. Kontaktformular",
@@ -188,7 +186,7 @@ export const de: Dictionary = {
       },
       essential: {
         title: "2. Wesentliche Einstellungen",
-        body: "Wir speichern Ihr Theme (dunkel/hell), Ihre Sprache (EN/ES/DE) und Ihre Cookie-Einwilligung im lokalen Speicher Ihres Browsers. Diese sind für die Speicherung Ihrer Einstellungen erforderlich und immer aktiv.",
+        body: "Wir speichern Ihre Sprache (EN/ES/DE) und Ihre Cookie-Einwilligung im lokalen Speicher Ihres Browsers. Diese sind für die Speicherung Ihrer Einstellungen erforderlich und immer aktiv.",
       },
       optional: {
         title: "3. Optionale Cookies",
@@ -202,7 +200,7 @@ export const de: Dictionary = {
   },
   cookieBanner: {
     message:
-      "Wir verwenden lokalen Speicher für Theme, Sprache und Einwilligung. Keine Analyse- oder Werbe-Cookies.",
+      "Wir verwenden lokalen Speicher für Sprache und Einwilligung. Keine Analyse- oder Werbe-Cookies.",
     accept: "Akzeptieren",
     reject: "Ablehnen",
     learnMore: "Cookie-Richtlinie",

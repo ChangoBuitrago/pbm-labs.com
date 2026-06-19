@@ -12,8 +12,6 @@ export const es: Dictionary = {
     contact: "Contacto",
     openMenu: "Abrir menú",
     closeMenu: "Cerrar menú",
-    themeLight: "Cambiar a modo claro",
-    themeDark: "Cambiar a modo oscuro",
     language: "Idioma",
   },
   footer: {
@@ -163,7 +161,7 @@ export const es: Dictionary = {
     sections: {
       website: {
         title: "1. Datos del Sitio",
-        body: "Este sitio no utiliza analítica, píxeles de seguimiento ni publicidad de terceros. Las preferencias esenciales (tema, idioma, consentimiento de cookies) se guardan solo en el almacenamiento local de su navegador.",
+        body: "Este sitio no utiliza analítica, píxeles de seguimiento ni publicidad de terceros. Las preferencias esenciales (idioma y consentimiento de cookies) se guardan solo en el almacenamiento local de su navegador.",
       },
       contact: {
         title: "2. Formulario de Contacto",
@@ -188,7 +186,7 @@ export const es: Dictionary = {
       },
       essential: {
         title: "2. Preferencias Esenciales",
-        body: "Guardamos su tema (oscuro/claro), idioma (EN/ES/DE) y elección de consentimiento en el almacenamiento local del navegador. Son necesarios para recordar su configuración y siempre están activos.",
+        body: "Guardamos su idioma (EN/ES/DE) y su elección de consentimiento en el almacenamiento local del navegador. Son necesarios para recordar su configuración y siempre están activos.",
       },
       optional: {
         title: "3. Cookies Opcionales",
@@ -202,7 +200,7 @@ export const es: Dictionary = {
   },
   cookieBanner: {
     message:
-      "Usamos almacenamiento local esencial para tema, idioma y consentimiento. Sin cookies de analítica ni publicidad.",
+      "Usamos almacenamiento local esencial para idioma y consentimiento. Sin cookies de analítica ni publicidad.",
     accept: "Aceptar",
     reject: "Rechazar",
     learnMore: "Política de cookies",

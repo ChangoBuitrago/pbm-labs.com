@@ -14,33 +14,9 @@
   --color-board-accent: #3da5f4;
 }
 
-:root,
-[data-theme="dark"] {
-  --color-board-bg: #0b0e13;
-  --color-board-surface: #12151c;
-  --color-board-elevated: #1a1f2a;
-  --color-board-border: #252b38;
-  --color-board-text: #f7f8fa;
-  --color-board-silver: #c5ccd6;
-  --color-board-muted: #8b939e;
-  --color-board-accent: #3da5f4;
+:root {
   --hero-glow-inner: rgba(61, 165, 244, 0.18);
   --hero-glow-outer: rgba(61, 165, 244, 0.06);
-  --cta-glow: rgba(61, 165, 244, 0.08);
-}
-
-[data-theme="light"] {
-  --color-board-bg: #f7f8fa;
-  --color-board-surface: #ffffff;
-  --color-board-elevated: #f0f2f5;
-  --color-board-border: #e2e6ed;
-  --color-board-text: #0b0e13;
-  --color-board-silver: #4a5568;
-  --color-board-muted: #6b7280;
-  --color-board-accent: #2563eb;
-  --hero-glow-inner: rgba(37, 99, 235, 0.12);
-  --hero-glow-outer: rgba(37, 99, 235, 0.04);
-  --cta-glow: rgba(37, 99, 235, 0.06);
 }
 
 @keyframes fade-up {
@@ -72,6 +48,164 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   background-color: var(--color-board-bg);
   color: var(--color-board-text);
+}
+
+.site-texture {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--color-board-bg);
+  background-image:
+    radial-gradient(
+      ellipse 90% 60% at 50% -15%,
+      rgba(61, 165, 244, 0.07),
+      transparent 55%
+    ),
+    linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+    radial-gradient(
+      circle at center,
+      rgba(61, 165, 244, 0.045) 0.65px,
+      transparent 0.65px
+    );
+  background-size:
+    100% 100%,
+    64px 64px,
+    64px 64px,
+    32px 32px;
+  animation: texture-drift 90s linear infinite;
+}
+
+.site-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: soft-light;
+}
+
+@keyframes texture-drift {
+  from {
+    background-position:
+      0 0,
+      0 0,
+      0 0,
+      0 0;
+  }
+  to {
+    background-position:
+      0 0,
+      64px 64px,
+      64px 64px,
+      16px 16px;
+  }
+}
+
+.site-shell {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes logo-wave-flow {
+  0%,
+  100% {
+    stroke-dashoffset: 42;
+    opacity: 0.65;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes logo-node-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.88);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes logo-frame-glow {
+  0%,
+  100% {
+    stroke-opacity: 0.65;
+  }
+  50% {
+    stroke-opacity: 1;
+  }
+}
+
+@keyframes logo-bit-flicker {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.logo-mark .logo-wave {
+  stroke-dasharray: 42;
+  animation: logo-wave-flow 5s ease-in-out infinite;
+}
+
+.logo-mark .logo-node {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.logo-mark .logo-node-1 {
+  animation: logo-node-pulse 3.2s ease-in-out infinite;
+}
+
+.logo-mark .logo-node-2 {
+  animation: logo-node-pulse 3.2s ease-in-out 0.55s infinite;
+}
+
+.logo-mark .logo-node-3 {
+  animation: logo-node-pulse 3.2s ease-in-out 1.1s infinite;
+}
+
+.logo-mark .logo-frame {
+  animation: logo-frame-glow 6s ease-in-out infinite;
+}
+
+.logo-mark .logo-bit-1 {
+  animation: logo-bit-flicker 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-texture {
+    animation: none;
+  }
+
+  .logo-mark .logo-wave,
+  .logo-mark .logo-node-1,
+  .logo-mark .logo-node-2,
+  .logo-mark .logo-node-3,
+  .logo-mark .logo-frame,
+  .logo-mark .logo-bit-1 {
+    animation: none;
+  }
+
+  .logo-mark .logo-wave {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  .logo-mark .logo-node {
+    opacity: 0.85;
+    transform: none;
+  }
 }
 
 .corp-eyebrow {

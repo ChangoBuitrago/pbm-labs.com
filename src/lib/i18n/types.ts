@@ -9,8 +9,6 @@ export type Dictionary = {
     contact: string;
     openMenu: string;
     closeMenu: string;
-    themeLight: string;
-    themeDark: string;
     language: string;
   };
   footer: {

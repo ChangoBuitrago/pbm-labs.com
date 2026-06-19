@@ -12,8 +12,6 @@ export const en: Dictionary = {
     contact: "Contact",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    themeLight: "Switch to light mode",
-    themeDark: "Switch to dark mode",
     language: "Language",
   },
   footer: {
@@ -161,7 +159,7 @@ export const en: Dictionary = {
     sections: {
       website: {
         title: "1. Website Data",
-        body: "This website does not use analytics, tracking pixels, or third-party advertising. Essential preferences (theme, language, cookie consent) are stored in your browser's local storage only.",
+        body: "This website does not use analytics, tracking pixels, or third-party advertising. Essential preferences (language and cookie consent) are stored in your browser's local storage only.",
       },
       contact: {
         title: "2. Contact Form",
@@ -186,7 +184,7 @@ export const en: Dictionary = {
       },
       essential: {
         title: "2. Essential Preferences",
-        body: "We store your theme (dark/light), language (EN/ES/DE), and cookie consent choice in your browser's local storage. These are required for the site to remember your settings and are always active.",
+        body: "We store your language (EN/ES/DE) and cookie consent choice in your browser's local storage. These are required for the site to remember your settings and are always active.",
       },
       optional: {
         title: "3. Optional Cookies",
@@ -200,7 +198,7 @@ export const en: Dictionary = {
   },
   cookieBanner: {
     message:
-      "We use essential local storage for theme, language, and consent preferences. No analytics or advertising cookies.",
+      "We use essential local storage for language and consent preferences. No analytics or advertising cookies.",
     accept: "Accept",
     reject: "Reject",
     learnMore: "Cookie policy",

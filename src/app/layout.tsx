@@ -4,7 +4,7 @@ import { CookieBanner } from "@/components/layout/SiteControls";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SiteProvider } from "@/components/providers/SiteProvider";
-import { ThemeScript } from "@/components/providers/ThemeScript";
+import { LocaleScript } from "@/components/providers/LocaleScript";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/lib/site-config";
 import "./globals.css";
@@ -61,15 +61,18 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <ThemeScript />
+        <LocaleScript />
       </head>
       <body className="min-h-full flex flex-col selection:bg-[var(--color-board-accent)]/25">
+        <div className="site-texture" aria-hidden />
         <SiteProvider>
-          <JsonLd />
-          <Navbar />
-          <div className="flex-grow">{children}</div>
-          <Footer />
-          <CookieBanner />
+          <div className="site-shell flex min-h-full flex-col flex-grow">
+            <JsonLd />
+            <Navbar />
+            <div className="flex-grow">{children}</div>
+            <Footer />
+            <CookieBanner />
+          </div>
         </SiteProvider>
       </body>
     </html>
