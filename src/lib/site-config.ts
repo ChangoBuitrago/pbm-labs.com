@@ -21,7 +21,7 @@ export const siteConfig = {
     "Technology consulting and software development services (Servicios de consultoría tecnológica y desarrollo de software).",
   address: {
     line1: "PBM Labs",
-    line2: "1309 Coffeen Avenue STE 1200",
+    line2: "30 North Gould Street, Suite N",
     city: "Sheridan",
     state: "WY",
     zip: "82801",
