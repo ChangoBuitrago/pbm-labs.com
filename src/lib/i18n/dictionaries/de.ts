@@ -21,6 +21,7 @@ export const de: Dictionary = {
     terms: "AGB",
     privacy: "Datenschutz",
     cookies: "Cookies",
+    cookiePreferences: "Cookie-Einstellungen",
     rights: "Alle Rechte vorbehalten.",
   },
   common: {
@@ -134,45 +135,93 @@ export const de: Dictionary = {
   terms: {
     title: "Nutzungsbedingungen",
     sections: {
+      acceptance: {
+        title: "1. Annahme der Bedingungen",
+        body: "Durch den Zugriff auf oder die Nutzung dieser Website stimmen Sie diesen Nutzungsbedingungen zu. Wenn Sie nicht einverstanden sind, nutzen Sie diese Website nicht. Diese Bedingungen gelten für alle Besucher und Nutzer von pbm-labs.com.",
+      },
       b2b: {
-        title: "1. B2B-Leistungen",
-        body: 'PBM Labs LLC („PBM Labs") bietet Technologieberatung und individuelle Softwareentwicklung ausschließlich für Unternehmen. Mit der Nutzung dieser Website bestätigen Sie, dass Sie in beruflicher oder geschäftlicher Eigenschaft handeln.',
+        title: "2. B2B-Leistungen",
+        body: 'PBM Labs LLC („PBM Labs", „wir") bietet Technologieberatung und individuelle Softwareentwicklung ausschließlich für Unternehmen. Mit der Nutzung dieser Website bestätigen Sie, dass Sie in beruflicher oder geschäftlicher Eigenschaft handeln. Wir bieten keine Verbraucherdienstleistungen an.',
       },
       financial: {
-        title: "2. Keine Finanzdienstleistungen",
+        title: "3. Keine Finanzdienstleistungen",
         body: "Wir sind keine Bank, kein Broker, kein Zahlungsdienstleister und keine Finanzinstitution. Wir verarbeiten, verwahren oder übertragen keine Währungen, Wertpapiere oder Finanzanlagen.",
       },
       information: {
-        title: "3. Nur Informationen",
-        body: "Technische Ergebnisse unserer Beratung oder Software sind informativ. Sie stellen keine Finanz-, Rechts-, Steuer- oder Geschäftsberatung dar.",
+        title: "4. Nur Informationen",
+        body: "Inhalte auf dieser Website und technische Ergebnisse unserer Beratung oder Software sind informativ. Sie stellen keine Finanz-, Rechts-, Steuer- oder Geschäftsberatung dar.",
+      },
+      use: {
+        title: "5. Zulässige Nutzung",
+        body: "Sie dürfen diese Website nur für rechtmäßige geschäftliche Zwecke nutzen. Sie dürfen die Website nicht missbrauchen, unbefugten Zugriff versuchen, den Betrieb stören, Daten scrapen oder sammeln, Malware einführen oder die Website in einer Weise nutzen, die gegen geltendes Recht verstößt.",
+      },
+      ip: {
+        title: "6. Geistiges Eigentum",
+        body: "Alle Inhalte auf dieser Website — einschließlich Text, Grafiken, Logos und Design — sind Eigentum von PBM Labs LLC oder deren Lizenzgebern und durch geltende Urheber- und Markenrechte geschützt. Sie erhalten eine begrenzte, nicht ausschließliche Lizenz zur Ansicht der Website für den vorgesehenen Geschäftszweck. Es werden keine weiteren Rechte gewährt.",
+      },
+      thirdParty: {
+        title: "7. Links Dritter",
+        body: "Diese Website kann auf Websites oder Dienste Dritter verlinken. Wir kontrollieren diese nicht und sind nicht für deren Inhalte, Richtlinien oder Praktiken verantwortlich. Die Nutzung von Websites Dritter erfolgt auf eigenes Risiko und unterliegt deren Bedingungen.",
+      },
+      disclaimer: {
+        title: "8. Haftungsausschluss",
+        body: 'Diese Website und ihre Inhalte werden „wie besehen" und „wie verfügbar" ohne jegliche ausdrückliche oder stillschweigende Gewährleistung bereitgestellt, einschließlich Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung. Wir garantieren nicht, dass die Website unterbrechungsfrei, fehlerfrei oder sicher ist.',
       },
       liability: {
-        title: "4. Haftung",
-        body: "Im gesetzlich zulässigen Umfang haftet PBM Labs nicht für indirekte, zufällige, besondere, Folge- oder Strafschäden aus der Nutzung dieser Website oder unserer Leistungen.",
+        title: "9. Haftungsbeschränkung",
+        body: "Im gesetzlich zulässigen Umfang haften PBM Labs LLC sowie deren Mitglieder, Geschäftsführer und Auftragnehmer nicht für indirekte, zufällige, besondere, Folge- oder Strafschäden aus der Nutzung dieser Website oder unserer Leistungen, selbst wenn auf die Möglichkeit solcher Schäden hingewiesen wurde.",
+      },
+      changes: {
+        title: "10. Änderungen der Bedingungen",
+        body: "Wir können diese Bedingungen von Zeit zu Zeit aktualisieren. Die überarbeitete Fassung wird auf dieser Seite mit aktualisiertem Datum veröffentlicht. Die fortgesetzte Nutzung der Website nach Änderungen gilt als Annahme der überarbeiteten Bedingungen.",
       },
       law: {
-        title: "5. Anwendbares Recht",
+        title: "11. Anwendbares Recht",
         body: "Diese Bedingungen unterliegen dem Recht des US-Bundesstaates Wyoming, ohne Berücksichtigung kollisionsrechtlicher Grundsätze.",
+      },
+      contact: {
+        title: "12. Kontakt & Mitteilungen",
+        body: "Rechtliche Mitteilungen und Fragen zu diesen Bedingungen können an hello@pbm-labs.com oder an unsere oben auf dieser Seite angegebene Postanschrift gesendet werden.",
       },
     },
   },
   privacy: {
     title: "Datenschutzerklärung",
     sections: {
+      collect: {
+        title: "1. Welche Daten wir erheben",
+        body: "Wir erheben nur minimale Informationen. Wenn Sie unser Kontaktformular absenden, erhalten wir Ihren Namen, Ihre geschäftliche E-Mail-Adresse, die Art der Anfrage und Ihre Nachricht. Wir betreiben auf dieser Website keine Benutzerkonten, Marketingdatenbanken oder Analyseprofile.",
+      },
+      purposes: {
+        title: "2. Wie wir Daten nutzen",
+        body: "Wir verwenden Kontaktformulardaten ausschließlich zur Beantwortung Ihrer Anfrage, zur Kommunikation über mögliche Beratungsaufträge und zur Verhinderung von Spam oder Missbrauch. Wir nutzen sie nicht für Werbung und verkaufen sie nicht an Dritte.",
+      },
       website: {
-        title: "1. Website-Daten",
+        title: "3. Website-Daten",
         body: "Diese Website verwendet keine Analyse-Tools, Tracking-Pixel oder Werbung Dritter. Wesentliche Einstellungen (Sprache und Cookie-Einwilligung) werden nur im lokalen Speicher Ihres Browsers gespeichert.",
       },
       contact: {
-        title: "2. Kontaktformular",
-        body: "Wenn Sie unser Formular absenden, werden die Angaben per E-Mail über Resend an unser Team übermittelt und nicht in einer Website-Datenbank gespeichert. Wir nutzen sie nur zur Beantwortung Ihrer Anfrage.",
+        title: "4. Kontaktformular",
+        body: "Wenn Sie unser Formular absenden, werden die Angaben per E-Mail über Resend, einen E-Mail-Zustelldienst, an unser Team übermittelt. Wir speichern Einsendungen nicht in einer Website-Datenbank. Resend kann die Daten zur Zustellung der Nachricht und zur Ermöglichung von Antworten verarbeiten.",
       },
-      regulatory: {
-        title: "3. Regulatorische Ausrichtung",
-        body: "Wir verkaufen keine personenbezogenen Daten. Unsere Praktiken orientieren sich an GDPR-, HIPAA- und CCPA-Grundsätzen für B2B-Kommunikation.",
+      processors: {
+        title: "5. Dienstleister",
+        body: "Wir nutzen Resend (resend.com) zur Zustellung von Kontaktformular-Nachrichten. Resend handelt als Auftragsverarbeiter in unserem Auftrag. Daten können in den Vereinigten Staaten oder anderen Rechtsräumen verarbeitet werden, in denen Resend tätig ist. Wir nutzen auf dieser öffentlichen Website keine weiteren Drittanbieter zur Datenverarbeitung.",
+      },
+      retention: {
+        title: "6. Aufbewahrung",
+        body: "Kontaktanfragen werden in unseren geschäftlichen E-Mail-Systemen so lange aufbewahrt, wie es zur Beantwortung, zur Führung von Geschäftsunterlagen und zur Erfüllung gesetzlicher Pflichten erforderlich ist. Lokale Speichereinstellungen auf Ihrem Gerät bleiben bestehen, bis Sie sie im Browser löschen.",
+      },
+      security: {
+        title: "7. Sicherheit",
+        body: "Wir setzen angemessene technische und organisatorische Maßnahmen ein, um über diese Website übermittelte Informationen zu schützen. Keine Übertragungs- oder Speichermethode ist vollständig sicher, und wir können absolute Sicherheit nicht garantieren.",
+      },
+      rights: {
+        title: "8. Ihre Rechte",
+        body: "Je nach Ihrem Standort können Sie Rechte auf Auskunft, Berichtigung oder Löschung personenbezogener Daten haben, die wir über Sie speichern. Wir verkaufen keine personenbezogenen Daten. Unsere Praktiken orientieren sich an GDPR-, HIPAA- und CCPA-Grundsätzen für B2B-Kommunikation. Zur Ausübung Ihrer Rechte kontaktieren Sie uns per E-Mail.",
       },
       questions: {
-        title: "4. Fragen",
+        title: "9. Fragen",
         body: "Datenschutzfragen:",
       },
     },
@@ -182,19 +231,19 @@ export const de: Dictionary = {
     sections: {
       overview: {
         title: "1. Überblick",
-        body: "Wir verwenden einen minimalen Ansatz für Cookies und lokalen Speicher. Diese Richtlinie erklärt, was wir speichern und wie Sie Ihre Einstellungen verwalten.",
+        body: "Wir verwenden einen minimalen Ansatz für Cookies und lokalen Speicher. Diese Richtlinie erklärt, was wir speichern, warum und wie Sie Ihre Einstellungen verwalten. Wir verwenden auf dieser Website keine Analyse-, Werbe- oder Tracking-Cookies Dritter.",
       },
       essential: {
         title: "2. Wesentliche Einstellungen",
-        body: "Wir speichern Ihre Sprache (EN/ES/DE) und Ihre Cookie-Einwilligung im lokalen Speicher Ihres Browsers. Diese sind für die Speicherung Ihrer Einstellungen erforderlich und immer aktiv.",
+        body: "Wir speichern Ihre Sprachwahl (EN/ES/DE) und den Cookie-Einwilligungsstatus im lokalen Speicher Ihres Browsers. Diese sind für die Speicherung Ihrer Einstellungen unbedingt erforderlich und immer aktiv. Für diese wesentlichen Einstellungen ist keine Einwilligung erforderlich.",
       },
       optional: {
         title: "3. Optionale Cookies",
-        body: "Derzeit verwenden wir keine Analyse-, Werbe- oder Tracking-Cookies Dritter. Falls sich dies ändert, aktualisieren wir diese Richtlinie und holen vorab eine Einwilligung ein.",
+        body: "Derzeit setzen wir keine optionalen oder nicht wesentlichen Cookies. Falls sich dies in Zukunft ändert, aktualisieren wir diese Richtlinie, holen vorab Ihre Einwilligung ein und bieten granulare Steuerung.",
       },
       manage: {
         title: "4. Einstellungen verwalten",
-        body: "Sie können optionale Cookies beim ersten Besuch über das Banner akzeptieren oder ablehnen. Um Ihre Wahl später zu ändern, löschen Sie die Website-Daten im Browser oder kontaktieren Sie uns.",
+        body: "Sie können optionale Cookies beim ersten Besuch über das Banner akzeptieren oder ablehnen. Um Ihre Wahl jederzeit zu ändern, nutzen Sie den Link Cookie-Einstellungen in der Fußzeile, um das Einwilligungsbanner erneut zu öffnen. Sie können Website-Daten auch in Ihren Browsereinstellungen löschen.",
       },
     },
   },
@@ -203,6 +252,7 @@ export const de: Dictionary = {
       "Wir verwenden lokalen Speicher für Sprache und Einwilligung. Keine Analyse- oder Werbe-Cookies.",
     accept: "Akzeptieren",
     reject: "Ablehnen",
+    close: "Schließen",
     learnMore: "Cookie-Richtlinie",
   },
   expertise: {

@@ -22,9 +22,12 @@ import {
 type SiteContextValue = {
   locale: Locale;
   cookieConsent: CookieConsent | null;
+  cookiePreferencesOpen: boolean;
   t: Dictionary;
   setLocale: (locale: Locale) => void;
   setCookieConsent: (consent: CookieConsent) => void;
+  openCookiePreferences: () => void;
+  closeCookiePreferences: () => void;
   mounted: boolean;
 };
 
@@ -35,6 +38,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
   const [cookieConsent, setCookieConsentState] = useState<CookieConsent | null>(
     null,
   );
+  const [cookiePreferencesOpen, setCookiePreferencesOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -56,6 +60,15 @@ export function SiteProvider({ children }: { children: ReactNode }) {
   const setCookieConsent = useCallback((value: CookieConsent) => {
     setCookieConsentState(value);
     localStorage.setItem(STORAGE_KEYS.cookieConsent, value);
+    setCookiePreferencesOpen(false);
+  }, []);
+
+  const openCookiePreferences = useCallback(() => {
+    setCookiePreferencesOpen(true);
+  }, []);
+
+  const closeCookiePreferences = useCallback(() => {
+    setCookiePreferencesOpen(false);
   }, []);
 
   const t = useMemo(() => getDictionary(locale), [locale]);
@@ -64,12 +77,25 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     () => ({
       locale,
       cookieConsent,
+      cookiePreferencesOpen,
       t,
       setLocale,
       setCookieConsent,
+      openCookiePreferences,
+      closeCookiePreferences,
       mounted,
     }),
-    [locale, cookieConsent, t, setLocale, setCookieConsent, mounted],
+    [
+      locale,
+      cookieConsent,
+      cookiePreferencesOpen,
+      t,
+      setLocale,
+      setCookieConsent,
+      openCookiePreferences,
+      closeCookiePreferences,
+      mounted,
+    ],
   );
 
   return <SiteContext.Provider value={value}>{children}</SiteContext.Provider>;

@@ -102,9 +102,19 @@ export function NavbarControls({ className = "" }: { className?: string }) {
 }
 
 export function CookieBanner() {
-  const { cookieConsent, setCookieConsent, t, mounted } = useSite();
+  const {
+    cookieConsent,
+    cookiePreferencesOpen,
+    setCookieConsent,
+    closeCookiePreferences,
+    t,
+    mounted,
+  } = useSite();
 
-  if (!mounted || cookieConsent) return null;
+  const visible =
+    mounted && (cookieConsent === null || cookiePreferencesOpen);
+
+  if (!visible) return null;
 
   return (
     <div className="fixed bottom-0 inset-x-0 z-[60] p-4 md:p-6 pointer-events-none">
@@ -133,6 +143,15 @@ export function CookieBanner() {
           >
             {t.cookieBanner.reject}
           </button>
+          {cookiePreferencesOpen && cookieConsent !== null && (
+            <button
+              type="button"
+              onClick={closeCookiePreferences}
+              className="h-9 px-4 text-sm font-medium rounded-md text-[var(--color-board-muted)] hover:text-[var(--color-board-text)] transition-colors"
+            >
+              {t.cookieBanner.close}
+            </button>
+          )}
         </div>
       </div>
     </div>

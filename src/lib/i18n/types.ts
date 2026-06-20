@@ -18,6 +18,7 @@ export type Dictionary = {
     terms: string;
     privacy: string;
     cookies: string;
+    cookiePreferences: string;
     rights: string;
   };
   common: {
@@ -105,19 +106,31 @@ export type Dictionary = {
   terms: {
     title: string;
     sections: {
+      acceptance: { title: string; body: string };
       b2b: { title: string; body: string };
       financial: { title: string; body: string };
       information: { title: string; body: string };
+      use: { title: string; body: string };
+      ip: { title: string; body: string };
+      thirdParty: { title: string; body: string };
+      disclaimer: { title: string; body: string };
       liability: { title: string; body: string };
+      changes: { title: string; body: string };
       law: { title: string; body: string };
+      contact: { title: string; body: string };
     };
   };
   privacy: {
     title: string;
     sections: {
+      collect: { title: string; body: string };
+      purposes: { title: string; body: string };
       website: { title: string; body: string };
       contact: { title: string; body: string };
-      regulatory: { title: string; body: string };
+      processors: { title: string; body: string };
+      retention: { title: string; body: string };
+      security: { title: string; body: string };
+      rights: { title: string; body: string };
       questions: { title: string; body: string };
     };
   };
@@ -134,6 +147,7 @@ export type Dictionary = {
     message: string;
     accept: string;
     reject: string;
+    close: string;
     learnMore: string;
   };
   expertise: {

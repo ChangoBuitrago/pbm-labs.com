@@ -6,9 +6,66 @@ import { ProseLayout, ProseSection } from "@/components/ui/ProseLayout";
 import { useSite } from "@/components/providers/SiteProvider";
 import { siteConfig } from "@/lib/site-config";
 
+const TERMS_ORDER = [
+  "acceptance",
+  "b2b",
+  "financial",
+  "information",
+  "use",
+  "ip",
+  "thirdParty",
+  "disclaimer",
+  "liability",
+  "changes",
+  "law",
+  "contact",
+] as const;
+
+const PRIVACY_ORDER = [
+  "collect",
+  "purposes",
+  "website",
+  "contact",
+  "processors",
+  "retention",
+  "security",
+  "rights",
+  "questions",
+] as const;
+
+const COOKIES_ORDER = [
+  "overview",
+  "essential",
+  "optional",
+  "manage",
+] as const;
+
+function CompanyBlock() {
+  return (
+  <>
+    <p>
+      {siteConfig.address.line2}
+      <br />
+      {siteConfig.address.city}, {siteConfig.address.state}{" "}
+      {siteConfig.address.zip}
+      <br />
+      {siteConfig.address.country}
+    </p>
+    <p className="mt-4">
+      Email:{" "}
+      <a
+        href={`mailto:${siteConfig.email}`}
+        className="text-[var(--color-board-accent)] hover:brightness-110"
+      >
+        {siteConfig.email}
+      </a>
+    </p>
+  </>
+  );
+}
+
 export function TermsView() {
   const { t } = useSite();
-  const sections = Object.values(t.terms.sections);
 
   return (
     <PageShell width="narrow">
@@ -20,11 +77,18 @@ export function TermsView() {
       />
 
       <ProseLayout>
-        {sections.map((section) => (
-          <ProseSection key={section.title} title={section.title}>
-            <p>{section.body}</p>
-          </ProseSection>
-        ))}
+        <ProseSection title={siteConfig.legalName}>
+          <CompanyBlock />
+        </ProseSection>
+
+        {TERMS_ORDER.map((key) => {
+          const section = t.terms.sections[key];
+          return (
+            <ProseSection key={key} title={section.title}>
+              <p>{section.body}</p>
+            </ProseSection>
+          );
+        })}
       </ProseLayout>
     </PageShell>
   );
@@ -32,7 +96,6 @@ export function TermsView() {
 
 export function PrivacyView() {
   const { t } = useSite();
-  const { website, contact, regulatory, questions } = t.privacy.sections;
 
   return (
     <PageShell width="narrow">
@@ -44,26 +107,33 @@ export function PrivacyView() {
       />
 
       <ProseLayout>
-        <ProseSection title={website.title}>
-          <p>{website.body}</p>
+        <ProseSection title={siteConfig.legalName}>
+          <CompanyBlock />
         </ProseSection>
-        <ProseSection title={contact.title}>
-          <p>{contact.body}</p>
-        </ProseSection>
-        <ProseSection title={regulatory.title}>
-          <p>{regulatory.body}</p>
-        </ProseSection>
-        <ProseSection title={questions.title}>
-          <p>
-            {questions.body}{" "}
-            <a
-              href={`mailto:${siteConfig.email}`}
-              className="text-[var(--color-board-accent)] hover:brightness-110"
-            >
-              {siteConfig.email}
-            </a>
-          </p>
-        </ProseSection>
+
+        {PRIVACY_ORDER.map((key) => {
+          const section = t.privacy.sections[key];
+          if (key === "questions") {
+            return (
+              <ProseSection key={key} title={section.title}>
+                <p>
+                  {section.body}{" "}
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="text-[var(--color-board-accent)] hover:brightness-110"
+                  >
+                    {siteConfig.email}
+                  </a>
+                </p>
+              </ProseSection>
+            );
+          }
+          return (
+            <ProseSection key={key} title={section.title}>
+              <p>{section.body}</p>
+            </ProseSection>
+          );
+        })}
       </ProseLayout>
     </PageShell>
   );
@@ -71,7 +141,6 @@ export function PrivacyView() {
 
 export function CookiesView() {
   const { t } = useSite();
-  const sections = Object.values(t.cookies.sections);
 
   return (
     <PageShell width="narrow">
@@ -83,11 +152,18 @@ export function CookiesView() {
       />
 
       <ProseLayout>
-        {sections.map((section) => (
-          <ProseSection key={section.title} title={section.title}>
-            <p>{section.body}</p>
-          </ProseSection>
-        ))}
+        <ProseSection title={siteConfig.legalName}>
+          <CompanyBlock />
+        </ProseSection>
+
+        {COOKIES_ORDER.map((key) => {
+          const section = t.cookies.sections[key];
+          return (
+            <ProseSection key={key} title={section.title}>
+              <p>{section.body}</p>
+            </ProseSection>
+          );
+        })}
       </ProseLayout>
     </PageShell>
   );

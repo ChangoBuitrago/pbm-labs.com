@@ -19,7 +19,7 @@ const legalLinks = [
 ];
 
 export function Footer() {
-  const { t } = useSite();
+  const { t, openCookiePreferences } = useSite();
 
   const navLabels = {
     about: t.nav.about,
@@ -72,6 +72,13 @@ export function Footer() {
                   {legalLabels[key]}
                 </Link>
               ))}
+              <button
+                type="button"
+                onClick={openCookiePreferences}
+                className="text-sm text-left text-[var(--color-board-muted)] hover:text-[var(--color-board-text)] transition-colors"
+              >
+                {t.footer.cookiePreferences}
+              </button>
             </div>
           </div>
         </div>

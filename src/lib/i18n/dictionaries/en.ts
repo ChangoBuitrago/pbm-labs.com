@@ -21,6 +21,7 @@ export const en: Dictionary = {
     terms: "Terms",
     privacy: "Privacy",
     cookies: "Cookies",
+    cookiePreferences: "Cookie preferences",
     rights: "All rights reserved.",
   },
   common: {
@@ -132,45 +133,93 @@ export const en: Dictionary = {
   terms: {
     title: "Terms of Service",
     sections: {
+      acceptance: {
+        title: "1. Acceptance of Terms",
+        body: "By accessing or using this website, you agree to these Terms of Service. If you do not agree, do not use this website. These terms apply to all visitors and users of pbm-labs.com.",
+      },
       b2b: {
-        title: "1. B2B Services",
-        body: 'PBM Labs LLC ("PBM Labs") provides technology consulting and custom software development exclusively to business entities. By using this website, you confirm you are acting in a professional or commercial capacity.',
+        title: "2. B2B Services",
+        body: 'PBM Labs LLC ("PBM Labs", "we", "us") provides technology consulting and custom software development exclusively to business entities. By using this website, you confirm you are acting in a professional or commercial capacity. We do not offer consumer services.',
       },
       financial: {
-        title: "2. No Financial Services",
+        title: "3. No Financial Services",
         body: "We are not a bank, broker, money services business, or financial institution. We do not process, hold, custody, or transfer currency, securities, or financial assets.",
       },
       information: {
-        title: "3. Information Only",
-        body: "Any technical outputs from our consulting or software work are informational. They do not constitute financial, legal, tax, or business advice.",
+        title: "4. Information Only",
+        body: "Content on this website and any technical outputs from our consulting or software work are informational. They do not constitute financial, legal, tax, or business advice.",
+      },
+      use: {
+        title: "5. Permitted Use",
+        body: "You may use this website only for lawful business purposes. You may not misuse the site, attempt unauthorized access, interfere with its operation, scrape or harvest data, introduce malware, or use the site in any way that violates applicable law.",
+      },
+      ip: {
+        title: "6. Intellectual Property",
+        body: "All content on this website — including text, graphics, logos, and design — is owned by PBM Labs LLC or its licensors and is protected by applicable intellectual property laws. You receive a limited, non-exclusive license to view the site for its intended business purpose. No other rights are granted.",
+      },
+      thirdParty: {
+        title: "7. Third-Party Links",
+        body: "This website may link to third-party sites or services. We do not control and are not responsible for their content, policies, or practices. Your use of third-party sites is at your own risk and subject to their terms.",
+      },
+      disclaimer: {
+        title: "8. Disclaimer of Warranties",
+        body: 'This website and its content are provided "as is" and "as available" without warranties of any kind, express or implied, including merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the site will be uninterrupted, error-free, or secure.',
       },
       liability: {
-        title: "4. Liability",
-        body: "To the maximum extent permitted by law, PBM Labs is not liable for indirect, incidental, special, consequential, or punitive damages arising from use of this website or our services.",
+        title: "9. Limitation of Liability",
+        body: "To the maximum extent permitted by law, PBM Labs LLC and its members, officers, and contractors are not liable for indirect, incidental, special, consequential, or punitive damages arising from your use of this website or our services, even if advised of the possibility of such damages.",
+      },
+      changes: {
+        title: "10. Changes to Terms",
+        body: "We may update these Terms from time to time. The revised version will be posted on this page with an updated date. Continued use of the website after changes constitutes acceptance of the revised Terms.",
       },
       law: {
-        title: "5. Governing Law",
-        body: "These terms are governed by the laws of the State of Wyoming, United States, without regard to conflict-of-law principles.",
+        title: "11. Governing Law",
+        body: "These Terms are governed by the laws of the State of Wyoming, United States, without regard to conflict-of-law principles.",
+      },
+      contact: {
+        title: "12. Contact & Notices",
+        body: "Legal notices and questions about these Terms may be sent to hello@pbm-labs.com or to our mailing address listed at the top of this page.",
       },
     },
   },
   privacy: {
     title: "Privacy Policy",
     sections: {
+      collect: {
+        title: "1. Information We Collect",
+        body: "We collect minimal information. When you submit our contact form, we receive your name, corporate email address, inquiry type, and message. We do not operate user accounts, marketing databases, or analytics profiles on this website.",
+      },
+      purposes: {
+        title: "2. How We Use Information",
+        body: "We use contact form information solely to respond to your inquiry, communicate about potential consulting engagements, and prevent spam or abuse. We do not use it for advertising or sell it to third parties.",
+      },
       website: {
-        title: "1. Website Data",
+        title: "3. Website Data",
         body: "This website does not use analytics, tracking pixels, or third-party advertising. Essential preferences (language and cookie consent) are stored in your browser's local storage only.",
       },
       contact: {
-        title: "2. Contact Form",
-        body: "If you submit our contact form, the information you provide is transmitted by email to our team via Resend and is not stored in a website database. We use it only to respond to your inquiry.",
+        title: "4. Contact Form",
+        body: "If you submit our contact form, the information you provide is transmitted by email to our team via Resend, an email delivery service. We do not store submissions in a website database. Resend may process the data to deliver the message and enable responses.",
       },
-      regulatory: {
-        title: "3. Regulatory Alignment",
-        body: "We do not sell personal data. Our practices are designed to align with GDPR, HIPAA, and CCPA principles for B2B communications.",
+      processors: {
+        title: "5. Service Providers",
+        body: "We use Resend (resend.com) to deliver contact form messages. Resend acts as a service provider processing data on our behalf. Data may be processed in the United States or other jurisdictions where Resend operates. We do not use other third-party data processors on this public website.",
+      },
+      retention: {
+        title: "6. Data Retention",
+        body: "Contact inquiries are retained in our business email systems for as long as needed to respond, maintain business records, and comply with legal obligations. Local storage preferences on your device persist until you clear them in your browser.",
+      },
+      security: {
+        title: "7. Security",
+        body: "We implement reasonable technical and organizational measures to protect information transmitted through this website. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.",
+      },
+      rights: {
+        title: "8. Your Rights",
+        body: "Depending on your location, you may have rights to access, correct, or delete personal data we hold about you. We do not sell personal data. Our practices are designed to align with GDPR, HIPAA, and CCPA principles for B2B communications. To exercise your rights, contact us using the email below.",
       },
       questions: {
-        title: "4. Questions",
+        title: "9. Questions",
         body: "Privacy questions:",
       },
     },
@@ -180,19 +229,19 @@ export const en: Dictionary = {
     sections: {
       overview: {
         title: "1. Overview",
-        body: "We use a minimal approach to cookies and local storage. This policy explains what we store and how you can manage your preferences.",
+        body: "We use a minimal approach to cookies and local storage. This policy explains what we store, why, and how you can manage your preferences. We do not use analytics, advertising, or third-party tracking cookies on this website.",
       },
       essential: {
         title: "2. Essential Preferences",
-        body: "We store your language (EN/ES/DE) and cookie consent choice in your browser's local storage. These are required for the site to remember your settings and are always active.",
+        body: "We store your language choice (EN/ES/DE) and cookie consent status in your browser's local storage. These are strictly necessary to remember your settings and are always active. No consent is required for these essential preferences.",
       },
       optional: {
         title: "3. Optional Cookies",
-        body: "We do not currently use analytics, advertising, or third-party tracking cookies. If this changes, we will update this policy and request consent before enabling them.",
+        body: "We do not currently set optional or non-essential cookies. If this changes in the future, we will update this policy, request your consent before enabling them, and provide granular controls.",
       },
       manage: {
         title: "4. Manage Preferences",
-        body: "You can accept or reject optional cookies via the banner on your first visit. To change your choice later, clear site data in your browser or contact us.",
+        body: "You can accept or reject optional cookies via the banner on your first visit. To change your choice at any time, use the Cookie preferences link in the site footer to reopen the consent banner. You may also clear site data in your browser settings.",
       },
     },
   },
@@ -201,6 +250,7 @@ export const en: Dictionary = {
       "We use essential local storage for language and consent preferences. No analytics or advertising cookies.",
     accept: "Accept",
     reject: "Reject",
+    close: "Close",
     learnMore: "Cookie policy",
   },
   expertise: {
